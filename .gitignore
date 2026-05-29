@@ -36,7 +36,7 @@ lerna-debug.log*
 # Misc
 .eslintcache
 .vercel/
-screenshots/
+# screenshots/   # uncomment to ignore local screenshots
 test-results/
 
 # Local dev artifacts
