@@ -1,4 +1,4 @@
-# RadioFlow Enterprise — Architecture Reference
+# RadioFlow Studio — Architecture Reference
 
 > **Document Version**: 2.0.0  
 > **Classification**: Internal — Engineering  
@@ -9,7 +9,7 @@
 
 ## 1. System Overview
 
-RadioFlow Enterprise is a **cloud-native, single-page application (SPA)** engineered for **real-time internet radio intelligence**. The system operates on a **three-tier architecture** with strict separation of concerns, runtime invariant enforcement, and a **defense-in-depth** security model.
+RadioFlow Studio is a **cloud-native, single-page application (SPA)** engineered for **real-time internet radio intelligence**. The system operates on a **three-tier architecture** with strict separation of concerns, runtime invariant enforcement, and a **defense-in-depth** security model.
 
 ### 1.1 Architectural Philosophy
 
@@ -372,6 +372,6 @@ logger.warn('Cache.stale', { key: cacheKey, age: Date.now() - timestamp });
 ---
 
 <p align="center">
-  <sub>© 2025–2026 RadioFlow Enterprise. All rights reserved.</sub><br>
+  <sub>© 2025–2026 RadioFlow Studio. All rights reserved.</sub><br>
   <sub>This document contains proprietary information. Distribution without authorization is prohibited.</sub>
 </p>

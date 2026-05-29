@@ -64,7 +64,7 @@ RadioFlow/
 ├── PROGRESS.md            # Project progress & architecture overview
 ├── AGENTS.md              # This file
 ├── package.json           # name: radioflow, version: 1.0.0
-└── README.md              # Project documentation (enterprise tone)
+└── README.md              # Project documentation (production tone)
 ```
 
 ## Architectural Decisions
@@ -124,4 +124,3 @@ Visual identity follows product type #45 "Music Streaming" from the UI/UX Pro Ma
 - Project: `radio-flow` (ID: `prj_5E28O7YKM2UgHrTC3HNnq3q9OhDW`)
 - `radioflow.vercel.app` is UNAVAILABLE (taken by another project)
 - Custom alias not configured — use Vercel dashboard or CLI
-- Token: `vcp_5AnCweCuicG0obU5Aamdtxh0sZBiTzyY2r5fjA5SWhoZrL9EEz0TeS2c`

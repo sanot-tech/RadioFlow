@@ -5,11 +5,11 @@
   </picture>
 </p>
 
-<h1 align="center">RadioFlow Enterprise</h1>
+<h1 align="center">RadioFlow</h1>
 
 <p align="center">
   <strong>⚡ Next-Generation Internet Radio Intelligence Platform</strong><br>
-  <em>Real-time global streaming · AI-driven trend correlation · Multi-surface orchestration · Runtime-verified state management · Enterprise-grade resilience</em>
+  <em>Real-time global streaming · AI-driven trend correlation · Multi-surface orchestration · Runtime-verified state management · Production-grade resilience</em>
 </p>
 
 <p align="center">
@@ -40,14 +40,14 @@
   <a href="#development">Development</a> •
   <a href="#deployment">Deployment</a> •
   <a href="#contributing">Contributing</a> •
-  <a href="#enterprise">Enterprise</a>
+  <a href="#licensing">Licensing</a>
 </p>
 
 ---
 
 <h2 id="overview">📖 Overview</h2>
 
-**RadioFlow Enterprise** is a mission-critical, cloud-native internet radio intelligence platform engineered for high-availability streaming, real-time trend analysis, AI-powered chat discovery, and cross-surface orchestration. Trusted by Fortune 500 enterprises for market intelligence, media monitoring, and consumer trend forecasting.
+**RadioFlow** is a mission-critical, cloud-native internet radio intelligence platform engineered for high-availability streaming, real-time trend analysis, AI-powered chat discovery, and cross-surface orchestration. Trusted by Fortune 500 enterprises for market intelligence, media monitoring, and consumer trend forecasting.
 
 The platform addresses the fundamental challenge of fragmented media intelligence in the broadcast radio domain by combining real-time audio stream processing, AI-powered trend correlation, multi-source metadata enrichment, LLM chat-based discovery, and runtime state verification into a single, cohesive intelligence layer.
 
@@ -83,7 +83,7 @@ In the modern media intelligence landscape, teams face a fundamental challenge: 
 | **Media Analysts** | Real-time monitoring of 100K+ global stations with AI trend correlation |
 | **Product Teams** | Market intelligence through broadcast trend analysis across 5 music platforms |
 | **Developers** | TypeScript-strict codebase with 26 components, 14 services, runtime invariants |
-| **Enterprise Architects** | Vercel edge network, Capacitor native bridge, runtime assurance layer |
+| **Architects** | Vercel edge network, Capacitor native bridge, runtime assurance layer |
 | **End Users** | Beautiful Aurora UI with glassmorphism, worm animations, LED scroll effects |
 
 ---
@@ -91,7 +91,7 @@ In the modern media intelligence landscape, teams face a fundamental challenge: 
 <h2 id="features">✨ Features</h2>
 
 <details>
-<summary><strong>🎵 Audio Engine & Streaming</strong> — Enterprise-grade audio pipeline with runtime verification</summary>
+<summary><strong>🎵 Audio Engine & Streaming</strong> — Production-grade audio pipeline with runtime verification</summary>
 
 | Feature | Description | Technology |
 |---|---|---|
@@ -111,7 +111,7 @@ In the modern media intelligence landscape, teams face a fundamental challenge: 
 </details>
 
 <details>
-<summary><strong>🎨 User Experience & Visual Design</strong> — 60fps micro-interactions with enterprise polish</summary>
+<summary><strong>🎨 User Experience & Visual Design</strong> — 60fps micro-interactions with production polish</summary>
 
 | Feature | Description |
 |---|---|
@@ -175,7 +175,7 @@ In the modern media intelligence landscape, teams face a fundamental challenge: 
 </details>
 
 <details>
-<summary><strong>🔒 Security & Compliance</strong> — Enterprise-grade security posture</summary>
+<summary><strong>🔒 Security & Compliance</strong> — Production-grade security posture</summary>
 
 | Feature | Description |
 |---|---|
@@ -187,7 +187,7 @@ In the modern media intelligence landscape, teams face a fundamental challenge: 
 | **CodeQL Analysis** | Security and quality queries on every PR |
 | **TypeScript Strict Mode** | Full type safety eliminates class of runtime errors |
 | **No Secrets in Code** | All API keys via environment variables, .env in gitignore |
-| **Enterprise License Gate** | Bootstrap entitlement validation for production builds |
+| **License gate** | Bootstrap entitlement validation for production builds |
 | **Invariant Runtime Guards** | Trinity framework prevents invalid state transitions |
 
 </details>
@@ -213,7 +213,7 @@ In the modern media intelligence landscape, teams face a fundamental challenge: 
   </tr>
   <tr>
     <td align="center" width="50%">
-      <strong>📖 Enterprise Guide</strong><br>
+      <strong>📖 Guide</strong><br>
       <em>Comprehensive documentation with left-nav and categories</em>
     </td>
     <td align="center" width="50%">
@@ -222,7 +222,7 @@ In the modern media intelligence landscape, teams face a fundamental challenge: 
     </td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/sanot-tech/RadioFlow/main/screenshots/guide.png" alt="Enterprise Guide" width="100%"></td>
+    <td><img src="https://raw.githubusercontent.com/sanot-tech/RadioFlow/main/screenshots/guide.png" alt="Guide" width="100%"></td>
     <td><img src="https://raw.githubusercontent.com/sanot-tech/RadioFlow/main/screenshots/favorites.png" alt="Favorites" width="100%"></td>
   </tr>
   <tr>
@@ -262,56 +262,27 @@ In the modern media intelligence landscape, teams face a fundamental challenge: 
 ### Platform Architecture Diagram
 
 ```
-╔══════════════════════════════════════════════════════════════════════════════════╗
-║                              RADIOFLOW ENTERPRISE                                ║
-║  ┌──────────────────────────────────────────────────────────────────────────┐  ║
-║  │                          EDGE & CDN LAYER                                 │  ║
-║  │              Vercel Edge Network · 200+ POPs · SSL/TLS Termination        │  ║
-║  │              /api/radio-proxy · /api/audio-proxy · Static Assets         │  ║
-║  └──────────────────────────────────────────────────────────────────────────┘  ║
-║                        │                      │           │                     ║
-║  ┌──────────────────────────────────┐  ┌──────────────┐  ┌──────────────────┐  ║
-║  │       PRESENTATION TIER          │  │ APPLICATION  │  │  INFRASTRUCTURE  │  ║
-║  │  ┌───────────┬───────────┐      │  │    TIER      │  │      TIER        │  ║
-║  │  │  Pages    │ Components│      │  │              │  │                  │  ║
-║  │  │  (10)     │   (26)    │      │  │  TanStack    │  │  Trinity Engine  │  ║
-║  │  ├───────────┼───────────┤      │  │  Query 5     │  │  (4 invariants)  │  ║
-║  │  │  RadioFlow│ Station   │      │  │  React Ctx   │  │  Axios Retry     │  ║
-║  │  │  Stations │ Card      │      │  │  (4 ctxs)    │  │  (2 attempts)    │  ║
-║  │  │  Favorites│ NowPlay   │      │  │  Custom Hooks│  │  API Cache       │  ║
-║  │  │  Genre    │ FixedCtrl │      │  │  (8 hooks)   │  │  (30s TTL)       │  ║
-║  │  │  Country  │ RadioHdr  │      │  │  Services    │  │  Audio Proxy     │  ║
-║  │  │  Search   │ Project   │      │  │  (14 servs)  │  │  Track Recog     │  ║
-║  │  │  Chat     │ Guide     │      │  │  Audio State │  │  ICY+Shazam      │  ║
-║  │  │  404     │ ScrollBtn │      │  │  Machine     │  │  Retry Intercept │  ║
-║  │  └───────────┴───────────┘      │  │  Trend Match │  │                  │  ║
-║  │  Stack: React 18 + TS 5.7       │  │  AI Chat     │  │                  │  ║
-║  │  Tailwind 3 + shadcn/ui         │  │  Recognizer  │  │                  │  ║
-║  │  Glassmorphism + Aurora UI      │  │  Cache Mgr   │  │                  │  ║
-║  └──────────────────────────────────┘  └──────┬───────┘  └──────────────────┘  ║
-║                                               │                                 ║
-║  ┌──────────────────────────────────────────────────────────────────────────┐  ║
-║  │                         DATA INTEGRATION LAYER                            │  ║
-║  │  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────────────────┐  │  ║
-║  │  │  Radio Browser  │  │  Music Trends   │  │  AI & Recognition       │  │  ║
-║  │  │  • de1.api      │  │  • YouTube      │  │  • OpenRouter GPT-4o    │  │  ║
-║  │  │  • de2.api      │  │  • Spotify      │  │  • Shazam API           │  │  ║
-║  │  │  • at1.api      │  │  • Apple Music  │  │  • ICY Metadata Parser  │  │  ║
-║  │  │  • Proxy fallbk │  │  • Yandex (RU)  │  │  • Track Cache Service  │  │  ║
-║  │  │  • 30s cache    │  │  • VK Music(RU) │  │  • Rate Limiter         │  │  ║
-║  │  └─────────────────┘  └─────────────────┘  └──────────────────────────┘  │  ║
-║  └──────────────────────────────────────────────────────────────────────────┘  ║
-║                                               │                                 ║
-║  ┌──────────────────────────────────────────────────────────────────────────┐  ║
-║  │                       PERSISTENCE & CACHE LAYER                           │  ║
-║  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │  ║
-║  │  │  In-Memory   │  │ localStorage │  │  IndexedDB   │  │  Supabase    │  │  ║
-║  │  │  LRU Cache   │  │  KV Store    │  │  ServiceWk   │  │  Favorites   │  │  ║
-║  │  │  30s TTL     │  │  Favorites   │  │  PWA Cache   │  │  Auth Sess   │  │  ║
-║  │  │  API Resp    │  │  Settings    │  │  Audio Cache  │  │  Sync        │  │  ║
-║  │  └──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘  │  ║
-║  └──────────────────────────────────────────────────────────────────────────┘  ║
-╚══════════════════════════════════════════════════════════════════════════════════╝
+╔══════════════════════════════════════════════════════════════╗
+║                        RADIOFLOW                              ║
+╠══════════════════════════════════════════════════════════════╣
+║  EDGE & CDN LAYER                                            ║
+║  Vercel Edge · 200+ PoPs · SSL/TLS · Radio/Audio Proxy     ║
+╠══════════════════════════════════════════════════════════════╣
+║  PRESENTATION TIER    │  APPLICATION TIER  │  INFRA TIER    ║
+║  ────────────────     │  ──────────────    │  ──────────    ║
+║  Pages (10)           │  TanStack Query 5  │  Trinity (4)   ║
+║  Components (26)      │  React Context (4) │  Axios Retry   ║
+║  React 18 + Tailwind  │  Custom Hooks (8)  │  API Cache     ║
+║  shadcn/ui + Aurora   │  Services (14)     │  Audio Proxy   ║
+║                       │  Audio State Mach  │  Track Recog   ║
+╠══════════════════════════════════════════════════════════════╣
+║  DATA INTEGRATION LAYER                                      ║
+║  Radio Browser (3 nodes)  │  Music Trends (5 platforms)    ║
+║  AI & Recognition (OpenRouter + Shazam + ICY)               ║
+╠══════════════════════════════════════════════════════════════╣
+║  PERSISTENCE & CACHE LAYER                                   ║
+║  In-Memory LRU  │  localStorage  │  IndexedDB SW  │  DB    ║
+╚══════════════════════════════════════════════════════════════╝
 ```
 
 ### Routing Topology
@@ -341,7 +312,7 @@ In the modern media intelligence landscape, teams face a fundamental challenge: 
 │   │   │   ├── <RecentStationsStrip>   — Horizontal scrollable history
 │   │   │   ├── <InfiniteScrollTrigger>  — Scroll-triggered loading
 │   │   │   ├── <ScrollToButtons>       — LED animated scroll to top/bottom
-│   │   │   ├── <ProjectGuide>          — Enterprise guide dialog
+│   │   │   ├── <ProjectGuide>          — guide dialog
 │   │   │   ├── <LLMChatPanel>           — AI chat panel (803 lines)
 │   │   │   └── <RadioPlayerBar>        — Persistent bottom bar
 │   │   ├── <Route path="/genre/top-vote" element={<TopStationsPage />} />
@@ -485,8 +456,8 @@ npm run lint
 | `npm run build:dev` | Development build (no minification) |
 | `npm run preview` | Preview production build locally |
 | `npm run lint` | ESLint static analysis (flat config) |
-| `npm run demo` | Enterprise license gate demo (CLI) |
-| `npm run demo:dev` | Enterprise gate with development bypass |
+| `npm run demo` | License gate demo (CLI) |
+| `npm run demo:dev` | License gate with development bypass |
 
 ### Environment Variables
 
@@ -495,7 +466,7 @@ npm run lint
 | `VITE_SUPABASE_URL` | Yes | — | Supabase project URL for auth & favorites sync |
 | `VITE_SUPABASE_ANON_KEY` | Yes | — | Supabase anonymous API key |
 | `VITE_OPENROUTER_API_KEY` | Yes | — | OpenRouter key for AI station descriptions |
-| `VITE_ENTITLEMENT_KEY` | No | `dev-access` | Enterprise license gate bypass (dev only) |
+| `VITE_ENTITLEMENT_KEY` | No | `dev-access` | License gate bypass (dev only) |
 
 ---
 
@@ -589,7 +560,7 @@ RadioFlow/
 │   └── radio-proxy.js                # Radio Browser API proxy (ESM)
 │
 ├── cli/                              # CLI tools
-│   └── enterprise-gate.ts            # Enterprise license demo gate
+│   └── enterprise-gate.ts            # License demo gate
 │
 ├── public/                           # Static assets
 │   ├── favicon.ico
@@ -616,7 +587,7 @@ RadioFlow/
 │   │   ├── StationCard.tsx           # Station card with play/fav/badges
 │   │   ├── NowPlayingCard.tsx        # In-page player with AI description
 │   │   ├── LLMChatPanel.tsx          # AI chat panel (803 lines)
-│   │   ├── ProjectGuide.tsx          # Enterprise guide dialog
+│   │   ├── ProjectGuide.tsx          # guide dialog
 │   │   ├── SearchOverlay.tsx         # Debounced search with keyboard nav
 │   │   ├── ScrollToPlayerButton.tsx  # Scroll-to-player FAB
 │   │   ├── ScrollToButtons.tsx       # LED animated scroll buttons
@@ -691,7 +662,7 @@ RadioFlow/
 ├── CHANGELOG.md                      # Release history
 ├── CODE_OF_CONDUCT.md                # Community standards
 ├── CONTRIBUTING.md                   # Contribution guide
-├── ENTERPRISE_PROTECTION.md          # Enterprise protection policy
+├── ENTERPRISE_PROTECTION.md          # Protection policy
 ├── LICENSE                           # MIT License
 ├── SECURITY.md                       # Security vulnerability policy
 ├── README.md                         # This file
@@ -823,14 +794,14 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed release history.
 
 | Version | Date | Highlights |
 |---|---|---|
-| v1.0.0 | 2026-05-29 | Enterprise GitHub setup, license gate, proxy, PWA cache fix |
+| v1.0.0 | 2026-05-29 | GitHub setup, license gate, proxy, PWA cache fix |
 | v1.0.0-rc.2 | 2026-05-28 | Worm animation, LED scroll, skeleton cards, fly-away fix |
 | v1.0.0-rc.1 | 2026-05-27 | Audio proxy, Vercel radio proxy, mobile layout fixes |
 | v1.0.0-beta | 2026-05-20 | Initial release — core streaming, trends, AI chat |
 
 ---
 
-<h2 id="enterprise">🏢 Enterprise</h2>
+<h2 id="enterprise">🏢 Licensing</h2>
 
 ### Licensing
 
@@ -839,9 +810,9 @@ RadioFlow is available under a dual-license model:
 | Edition | License | Features | Support |
 |---|---|---|---|
 | **Community** | MIT | Full feature set, self-hosted | Community (Discussions) |
-| **Enterprise** | Commercial | SLA guarantees, dedicated support, SSO, audit logging | 24/7 with 1h response |
+| **Pro** | Commercial | SLA guarantees, dedicated support, SSO, audit logging | 24/7 with 1h response |
 
-Contact [@sanot-tech](https://github.com/sanot-tech) for enterprise inquiries.
+Contact [@sanot-tech](https://github.com/sanot-tech) for inquiries.
 
 ### Professional Services
 

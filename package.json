@@ -12,8 +12,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "demo": "npx tsx cli/enterprise-gate.ts",
-    "demo:dev": "NODE_ENV=development npx tsx cli/enterprise-gate.ts"
+    "demo": "npx tsx cli/license-gate.ts",
+    "demo:dev": "NODE_ENV=development npx tsx cli/license-gate.ts"
   },
   "dependencies": {
     "@capacitor/android": "^7.4.3",

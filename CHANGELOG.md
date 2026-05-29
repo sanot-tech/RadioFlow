@@ -1,8 +1,8 @@
-# RadioFlow Enterprise — Changelog
+# RadioFlow Studio — Changelog
 
 > **Repository**: [github.com/sanot-tech/RadioFlow](https://github.com/sanot-tech/RadioFlow)
 >
-> All notable changes to the RadioFlow Enterprise platform are documented here.
+> All notable changes to the RadioFlow Studio platform are documented here.
 >
 > Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) — Versioning: [SemVer](https://semver.org/spec/v2.0.0.html)
 
@@ -178,6 +178,6 @@
 ---
 
 <p align="center">
-  <sub>© 2025–2026 RadioFlow Enterprise. All rights reserved.</sub><br>
+  <sub>© 2025–2026 RadioFlow Studio. All rights reserved.</sub><br>
   <sub>This changelog is maintained manually. For automated release notes, see GitHub Releases.</sub>
 </p>

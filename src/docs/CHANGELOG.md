@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the RadioFlow Enterprise platform are documented in this file.
+All notable changes to the RadioFlow Studio platform are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
@@ -164,6 +164,6 @@ with strict pre-release tagging.
 ---
 
 <p align="center">
-  <sub>© 2025–2026 RadioFlow Enterprise. All rights reserved.</sub><br>
+  <sub>© 2025–2026 RadioFlow Studio. All rights reserved.</sub><br>
   <sub>This changelog is maintained manually. For automated release notes, see GitHub Releases.</sub>
 </p>
