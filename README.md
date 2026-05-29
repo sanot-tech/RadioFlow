@@ -74,7 +74,7 @@ The platform addresses the fundamental challenge of fragmented media intelligenc
 | **AI Chat** — LLM-powered chat assistant | <img src="screenshots/08-chat.png" width="500" alt="Chat"> |
 | **Settings** — preferences dialog | <img src="screenshots/09-settings.png" width="500" alt="Settings"> |
 | **404** — not-found page | <img src="screenshots/10-404.png" width="500" alt="404"> |
-| **Mobile** — responsive 768px breakpoint | <img src="screenshots/11-mobile.png" width="350" alt="Mobile"> |
+| **Mobile** — responsive layout | <img src="screenshots/11-mobile.png" width="350" alt="Mobile"> |
 
 ---
 

@@ -171,7 +171,7 @@ await page.close();
 
 // ── Mobile 768px ──
 console.log('\n  Mobile…');
-const mobileCtx = await browser.newContext({ viewport: { width: 768, height: 1024 }, deviceScaleFactor: 2 });
+const mobileCtx = await browser.newContext({ viewport: { width: 767, height: 1024 }, deviceScaleFactor: 2 });
 const mobile = await mobileCtx.newPage();
 await interceptApi(mobile);
 await goto(mobile, '/', 5000);
