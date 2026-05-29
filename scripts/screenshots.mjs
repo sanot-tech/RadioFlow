@@ -3,6 +3,70 @@ import { chromium } from 'playwright';
 const BASE = 'http://localhost:8080';
 const DIR = 'screenshots';
 
+function generateMockStations(count = 100, page = 0) {
+  const genres = ['Rock', 'Pop', 'Jazz', 'Classical', 'Hip Hop', 'Electronic', 'Blues', 'Country', 'Reggae', 'Metal'];
+  const countries = ['United States', 'United Kingdom', 'Germany', 'France', 'Russia', 'Japan', 'Brazil', 'Canada', 'Australia', 'Italy'];
+  const names = ['Sunrise FM', 'Midnight Blues', 'Crystal Clear', 'Thunder Rock', 'Ocean Waves', 'Urban Beats', 'Golden Oldies', 'Neon Nights', 'Pure Jazz', 'Electric Dreams', 'Velvet Voice', 'Storm Metal', 'Tropical Heat', 'Arctic Chill', 'Desert Wind', 'Pulse Radio', 'Echo Station', 'Nova Wave', 'Zen Radio', 'Fusion FM'];
+  const tags = ['rock', 'pop', 'jazz', 'classical', 'hip-hop', 'electronic', 'blues', 'country', 'reggae', 'metal', 'indie', 'alternative', 'dance', 'soul', 'funk'];
+
+  return Array.from({ length: count }, (_, i) => ({
+    id: `mock-station-${page * count + i}`,
+    name: `${names[i % names.length]}${page > 0 ? ` ${page}` : ''}`,
+    url: `https://example.com/stream/${i}`,
+    url_resolved: `https://example.com/stream/${i}`,
+    homepage: `https://example.com`,
+    favicon: '',
+    tags: [genres[i % genres.length], tags[i % tags.length], tags[(i + 3) % tags.length]].join(','),
+    country: countries[i % countries.length],
+    language: 'english',
+    codec: 'MP3',
+    bitrate: [128, 192, 256, 320][i % 4],
+    votes: Math.floor(Math.random() * 1000),
+    clickcount: Math.floor(Math.random() * 10000),
+    clicktrend: Math.floor(Math.random() * 100),
+    geo_lat: null,
+    geo_long: null,
+    state: '',
+    lastcheckok: 1,
+    lastchecktime: new Date().toISOString(),
+    clicktimestamp: new Date().toISOString(),
+    lastchangetime: new Date().toISOString(),
+  }));
+}
+
+async function interceptApi(page) {
+  await page.route('**/api.radio-browser.info/**', async (route) => {
+    const url = route.request().url();
+
+    if (url.includes('/countries')) {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(
+          ['United States', 'United Kingdom', 'Germany', 'France', 'Russia', 'Japan', 'Brazil', 'Canada', 'Australia', 'Italy']
+            .map((c, i) => ({ name: c, stationcount: 1000 - i * 50 }))
+        ),
+      });
+    } else if (url.includes('/tags')) {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(
+          ['rock', 'pop', 'jazz', 'classical', 'hip-hop', 'electronic', 'blues', 'country', 'reggae', 'metal']
+            .map((t, i) => ({ name: t, stationcount: 500 - i * 30 }))
+        ),
+      });
+    } else {
+      // stations or anything else
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(generateMockStations(100, 0)),
+      });
+    }
+  });
+}
+
 const browser = await chromium.launch({ headless: true });
 
 async function goto(page, url, waitMs = 3000) {
@@ -28,36 +92,33 @@ async function snapClip(page, name, clip) {
   await page.screenshot({ path: `${DIR}/${name}.png`, clip });
 }
 
-console.log('Taking screenshots…\n');
+console.log('Taking screenshots (with mock API data)…\n');
 
 // ── Desktop 1440p ──
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
 const page = await ctx.newPage();
+await interceptApi(page);
 
 // 1. Main grid
-await goto(page, '/');
+await goto(page, '/', 5000);
 await snap(page, '01-main-grid');
 
-// 2. Genre selection dialog
+// 2. Genre modal
 await clickBtn(page, 'Genres', 2000);
 await snap(page, '02-genre-modal');
 await page.keyboard.press('Escape');
 await page.waitForTimeout(600);
 
-// 3. Country selection dialog
+// 3. Country modal
 await clickBtn(page, 'Country', 2000);
 await snap(page, '03-country-modal');
 await page.keyboard.press('Escape');
 await page.waitForTimeout(600);
 
-// 4. Force-show upper player + bottom bar by injecting player state
-// This avoids audio loading failures
+// 4. Click Play to show player
 await page.evaluate(() => {
-  // Dispatch a custom event or directly manipulate the player context
-  // The RadioPlayerContext stores state in React. We can try clicking
-  // a station's play button programmatically.
-  const playBtns = document.querySelectorAll('button');
-  for (const btn of playBtns) {
+  const btns = document.querySelectorAll('button');
+  for (const btn of btns) {
     if (btn.textContent?.trim() === 'Play') {
       btn.click();
       break;
@@ -65,13 +126,11 @@ await page.evaluate(() => {
   }
 });
 await page.waitForTimeout(4000);
-
-// 5. Upper player (NowPlayingCard) with equalizer worm + bottom bar
 await snap(page, '04-player-upper');
 
-// 6. Bottom player bar — crop to just the fixed bottom element
+// 5. Bottom bar
 await page.waitForTimeout(1000);
-let br = await page.evaluate(() => {
+const br = await page.evaluate(() => {
   for (const el of document.querySelectorAll('div')) {
     const s = window.getComputedStyle(el);
     if (s.position === 'fixed' && s.bottom === '0px' && s.zIndex === '80') {
@@ -84,40 +143,40 @@ let br = await page.evaluate(() => {
   }
   return null;
 });
-if (br) {
-  await snapClip(page, '06-player-bottom', br);
-}
+if (br) await snapClip(page, '06-player-bottom', br);
 
-// 7. Search overlay
-await goto(page, '/');
-await clickBtn(page, 'Search');
-await page.waitForTimeout(1500);
+// 6. Search overlay
+await goto(page, '/', 2000);
+await interceptApi(page);  // re-apply mock
+await clickBtn(page, 'Search', 1500);
 await snap(page, '07-search');
 
-// 8. AI Chat panel
-await goto(page, '/');
-await clickBtn(page, 'AI Chat');
-await page.waitForTimeout(2000);
+// 7. AI Chat
+await goto(page, '/', 2000);
+await interceptApi(page);
+await clickBtn(page, 'AI Chat', 2000);
 await snap(page, '08-chat');
 
-// 9. Settings dialog
-await goto(page, '/');
-await clickBtn(page, 'Settings');
-await page.waitForTimeout(2000);
+// 8. Settings
+await goto(page, '/', 2000);
+await interceptApi(page);
+await clickBtn(page, 'Settings', 2000);
 await snap(page, '09-settings');
 
-// 10. 404 page
+// 9. 404
 await goto(page, '/nonexistent');
 await snap(page, '10-404');
 
 await page.close();
 
-// ── Mobile 640px (wider to fit bottom buttons) ──
+// ── Mobile 768px ──
 console.log('\n  Mobile…');
 const mobileCtx = await browser.newContext({ viewport: { width: 768, height: 1024 }, deviceScaleFactor: 2 });
 const mobile = await mobileCtx.newPage();
-await goto(mobile, '/');
+await interceptApi(mobile);
+await goto(mobile, '/', 5000);
 await snap(mobile, '11-mobile');
+await mobile.close();
 
 console.log('\nDone!');
 await browser.close();
