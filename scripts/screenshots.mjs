@@ -6,23 +6,26 @@ const DIR = 'screenshots';
 const browser = await chromium.launch({ headless: true });
 
 async function goto(page, url, waitMs = 3000) {
-  await page.goto(BASE + url, { waitUntil: 'domcontentloaded', timeout: 15000 });
+  await page.goto(BASE + url, { waitUntil: 'domcontentloaded', timeout: 20000 });
   await page.waitForTimeout(waitMs);
 }
 
-async function clickButton(page, text, waitMs = 1500) {
+async function clickBtn(page, text, waitMs = 1500) {
   const btn = page.locator('button').filter({ hasText: text });
   if (await btn.count() > 0) {
     await btn.first().click();
     await page.waitForTimeout(waitMs);
     return true;
   }
-  console.log(`  ✗ button "${text}" not found`);
   return false;
 }
 
 async function snap(page, name) {
   await page.screenshot({ path: `${DIR}/${name}.png`, fullPage: true });
+}
+
+async function snapClip(page, name, clip) {
+  await page.screenshot({ path: `${DIR}/${name}.png`, clip });
 }
 
 console.log('Taking screenshots…\n');
@@ -31,68 +34,86 @@ console.log('Taking screenshots…\n');
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
 const page = await ctx.newPage();
 
-// 1. Main page (stations grid)
+// 1. Main grid — full stations listing
 await goto(page, '/');
-await snap(page, '01-main');
+await snap(page, '01-main-grid');
 
-// 2. Favorites page
-await goto(page, '/favorites');
-await snap(page, '02-favorites');
+// 2. Genre selection modal
+await clickBtn(page, 'Genres');
+await page.waitForTimeout(2000);
+await snap(page, '02-genre-modal');
+await page.keyboard.press('Escape');
+await page.waitForTimeout(600);
 
-// 3. Genre page
-await goto(page, '/genre/rock');
-await snap(page, '03-genre-rock');
+// 3. Country selection modal
+await clickBtn(page, 'Country');
+await page.waitForTimeout(2000);
+await snap(page, '03-country-modal');
+await page.keyboard.press('Escape');
+await page.waitForTimeout(600);
 
-// 4. Country page
-await goto(page, '/country/Russia');
-await snap(page, '04-country-russia');
-
-// 5. Top-vote
-await goto(page, '/genre/top-vote');
-await snap(page, '05-top-vote');
-
-// 6. Trending
-await goto(page, '/genre/trending');
-await snap(page, '06-trending');
+// 4. USA stations — capture everything quickly before audio fails
+await goto(page, '/country/United%20States', 4000);
+const playBtn = page.locator('button').filter({ hasText: /^Play$/ });
+if (await playBtn.count() > 0) {
+  await playBtn.first().click();
+  await page.waitForTimeout(2000);
+  // Snapshot bottom bar clip
+  let br = await page.evaluate(() => {
+    for (const el of document.querySelectorAll('div')) {
+      const s = window.getComputedStyle(el);
+      if (s.position === 'fixed' && s.bottom === '0px' && s.zIndex === '80') {
+        const t = el.textContent.trim();
+        if (t.length > 20) {
+          const r = el.getBoundingClientRect();
+          return { x: r.x, y: r.y, width: r.width, height: r.height };
+        }
+      }
+    }
+    return null;
+  });
+  if (br) {
+    await snapClip(page, '06-player-bottom', br);
+  }
+  // Full page + upper player captures (NOW — before audio fails)
+  await snap(page, '04-usa-player');
+  await snap(page, '05-player-upper');
+} else {
+  // If play btn not found, still capture page
+  await snap(page, '04-usa-player');
+  await snap(page, '05-player-upper');
+}
 
 // 7. Search overlay
 await goto(page, '/');
-await clickButton(page, 'Search');
-await snap(page, '07-search-overlay');
-await page.keyboard.press('Escape');
-await page.waitForTimeout(500);
+await clickBtn(page, 'Search');
+await page.waitForTimeout(1500);
+await snap(page, '07-search');
 
-// 8. AI Chat panel
-await clickButton(page, 'AI Chat');
-await snap(page, '08-chat-panel');
-await page.keyboard.press('Escape');
-await page.waitForTimeout(500);
-
-// 9. Now Playing / Player (fresh page, click first Play button)
-await goto(page, '/', 1000);
-await clickButton(page, 'Play', 4000);
-await snap(page, '09-now-playing');
-await page.waitForTimeout(2000);
-await snap(page, '10-player-active');
-
-// 10. 404 page
-await goto(page, '/nonexistent');
-await snap(page, '11-404');
-
-// 11. Settings dialog
+// 8. AI Chat panel — fresh page to clear search overlay
 await goto(page, '/');
-await clickButton(page, 'Settings');
-await snap(page, '12-settings-dialog');
+await clickBtn(page, 'AI Chat');
+await page.waitForTimeout(2000);
+await snap(page, '08-chat');
+
+// 9. Settings dialog — fresh page to avoid modal backdrop
+await goto(page, '/');
+await clickBtn(page, 'Settings');
+await page.waitForTimeout(2000);
+await snap(page, '09-settings');
+
+// 10. 404 page (goto = fresh navigation, clears all modals)
+await goto(page, '/nonexistent');
+await snap(page, '10-404');
 
 await page.close();
 
-// ── Mobile 375px ──
+// ── Mobile (wider: 480px) ──
 console.log('\n  Mobile…');
-const mobileCtx = await browser.newContext({ viewport: { width: 375, height: 812 }, deviceScaleFactor: 2 });
+const mobileCtx = await browser.newContext({ viewport: { width: 540, height: 812 }, deviceScaleFactor: 2 });
 const mobile = await mobileCtx.newPage();
 await goto(mobile, '/');
-await snap(mobile, '13-mobile-main');
-await mobile.close();
+await snap(mobile, '11-mobile');
 
 console.log('\nDone!');
 await browser.close();

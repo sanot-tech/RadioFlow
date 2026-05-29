@@ -2,91 +2,111 @@
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#1E1B4B"/>
-      <stop offset="50%" stop-color="#312E81"/>
-      <stop offset="100%" stop-color="#0F0F23"/>
+      <stop offset="30%" stop-color="#312E81"/>
+      <stop offset="70%" stop-color="#0F0F23"/>
+      <stop offset="100%" stop-color="#170F2E"/>
     </linearGradient>
     <linearGradient id="wave1" x1="0%" y1="100%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#22C55E"/>
-      <stop offset="100%" stop-color="#4338CA"/>
+      <stop offset="50%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#EC4899"/>
     </linearGradient>
     <linearGradient id="wave2" x1="0%" y1="100%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#34D399"/>
-      <stop offset="100%" stop-color="#6366F1"/>
+      <stop offset="50%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#F472B6"/>
     </linearGradient>
     <linearGradient id="wave3" x1="0%" y1="100%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#6EE7B7"/>
-      <stop offset="100%" stop-color="#818CF8"/>
+      <stop offset="50%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#FB923C"/>
     </linearGradient>
     <linearGradient id="text" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#22C55E"/>
-      <stop offset="50%" stop-color="#818CF8"/>
-      <stop offset="100%" stop-color="#4338CA"/>
+      <stop offset="30%" stop-color="#A855F7"/>
+      <stop offset="70%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+    <linearGradient id="antenaDot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#EC4899"/>
     </linearGradient>
     <filter id="glow">
-      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#4338CA" flood-opacity="0.5"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#A855F7" flood-opacity="0.6"/>
     </filter>
-    <filter id="glowStrong">
-      <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#22C55E" flood-opacity="0.4"/>
+    <filter id="glowGreen">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#22C55E" flood-opacity="0.5"/>
+    </filter>
+    <filter id="glowPink">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#EC4899" flood-opacity="0.5"/>
     </filter>
   </defs>
 
   <!-- Background circle -->
-  <circle cx="200" cy="200" r="195" fill="url(#bg)" stroke="#4338CA" stroke-width="2" opacity="0.9"/>
+  <circle cx="200" cy="200" r="195" fill="url(#bg)" stroke="url(#wave1)" stroke-width="1.5" opacity="0.95"/>
 
-  <!-- Inner glow ring -->
-  <circle cx="200" cy="200" r="180" fill="none" stroke="#22C55E" stroke-width="0.5" opacity="0.3"/>
+  <!-- Inner decorative rings -->
+  <circle cx="200" cy="200" r="170" fill="none" stroke="#A855F7" stroke-width="0.5" opacity="0.25"/>
+  <circle cx="200" cy="200" r="155" fill="none" stroke="#22C55E" stroke-width="0.3" opacity="0.15"/>
 
   <!-- Radio tower mast -->
-  <line x1="200" y1="280" x2="200" y2="120" stroke="#4338CA" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+  <line x1="200" y1="280" x2="200" y2="115" stroke="url(#wave1)" stroke-width="5" stroke-linecap="round" filter="url(#glow)"/>
 
-  <!-- Tower base -->
-  <path d="M185 280 L200 260 L215 280" fill="none" stroke="#4338CA" stroke-width="3" stroke-linecap="round"/>
-  <line x1="195" y1="270" x2="205" y2="270" stroke="#22C55E" stroke-width="2"/>
+  <!-- Tower base (tripod) -->
+  <path d="M180 285 L200 260 L220 285" fill="none" stroke="#818CF8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Base crossbar -->
+  <line x1="192" y1="272" x2="208" y2="272" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Base feet -->
+  <line x1="180" y1="285" x2="175" y2="290" stroke="#818CF8" stroke-width="2" stroke-linecap="round"/>
+  <line x1="220" y1="285" x2="225" y2="290" stroke="#818CF8" stroke-width="2" stroke-linecap="round"/>
 
-  <!-- Tower top antenna -->
-  <line x1="200" y1="120" x2="200" y2="95" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="200" cy="90" r="5" fill="#22C55E" opacity="0.8" filter="url(#glowStrong)"/>
+  <!-- Antenna -->
+  <line x1="200" y1="115" x2="200" y2="85" stroke="#22C55E" stroke-width="3" stroke-linecap="round" filter="url(#glowGreen)"/>
+  <!-- Antenna tip glow dot -->
+  <circle cx="200" cy="80" r="6" fill="url(#antenaDot)" opacity="0.9" filter="url(#glowGreen)">
+    <animate attributeName="r" values="6;8;6" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
 
-  <!-- Radio waves emanating from antenna -->
-  <!-- Wave 1 (innermost) -->
-  <path d="M175 110 Q165 85 175 60" fill="none" stroke="url(#wave1)" stroke-width="2.5" stroke-linecap="round" opacity="0.9">
-    <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite"/>
+  <!-- Radio waves emanating from antenna (left side) -->
+  <path d="M168 105 Q155 75 168 40" fill="none" stroke="url(#wave1)" stroke-width="3" stroke-linecap="round" opacity="0.85" filter="url(#glowPink)">
+    <animate attributeName="opacity" values="0.85;0.3;0.85" dur="2s" repeatCount="indefinite"/>
   </path>
-  <path d="M225 110 Q235 85 225 60" fill="none" stroke="url(#wave1)" stroke-width="2.5" stroke-linecap="round" opacity="0.9">
-    <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite"/>
+  <path d="M145 118 Q125 72 145 20" fill="none" stroke="url(#wave2)" stroke-width="2.5" stroke-linecap="round" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.15;0.6" dur="2.5s" repeatCount="indefinite"/>
   </path>
-
-  <!-- Wave 2 -->
-  <path d="M155 120 Q140 80 155 40" fill="none" stroke="url(#wave2)" stroke-width="2" stroke-linecap="round" opacity="0.6">
-    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.5s" repeatCount="indefinite"/>
-  </path>
-  <path d="M245 120 Q260 80 245 40" fill="none" stroke="url(#wave2)" stroke-width="2" stroke-linecap="round" opacity="0.6">
-    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.5s" repeatCount="indefinite"/>
-  </path>
-
-  <!-- Wave 3 (outermost) -->
-  <path d="M135 130 Q115 75 135 20" fill="none" stroke="url(#wave3)" stroke-width="1.5" stroke-linecap="round" opacity="0.4">
-    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
-  </path>
-  <path d="M265 130 Q285 75 265 20" fill="none" stroke="url(#wave3)" stroke-width="1.5" stroke-linecap="round" opacity="0.4">
+  <path d="M122 130 Q95 70 122 5" fill="none" stroke="url(#wave3)" stroke-width="2" stroke-linecap="round" opacity="0.4">
     <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
   </path>
 
-  <!-- Flow lines at bottom (representing "flow") -->
-  <path d="M120 320 Q160 290 200 310 Q240 330 280 300 Q320 270 360 295" fill="none" stroke="url(#wave1)" stroke-width="2" stroke-linecap="round" opacity="0.7">
-    <animate attributeName="d" values="M120 320 Q160 290 200 310 Q240 330 280 300 Q320 270 360 295;M120 310 Q160 330 200 305 Q240 280 280 310 Q320 340 360 290;M120 320 Q160 290 200 310 Q240 330 280 300 Q320 270 360 295" dur="4s" repeatCount="indefinite"/>
+  <!-- Radio waves (right side) -->
+  <path d="M232 105 Q245 75 232 40" fill="none" stroke="url(#wave1)" stroke-width="3" stroke-linecap="round" opacity="0.85" filter="url(#glowPink)">
+    <animate attributeName="opacity" values="0.85;0.3;0.85" dur="2s" repeatCount="indefinite"/>
   </path>
-  <path d="M130 340 Q170 320 210 335 Q250 350 290 325 Q330 300 350 330" fill="none" stroke="url(#wave2)" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
-    <animate attributeName="d" values="M130 340 Q170 320 210 335 Q250 350 290 325 Q330 300 350 330;M130 330 Q170 350 210 330 Q250 310 290 340 Q330 360 350 325;M130 340 Q170 320 210 335 Q250 350 290 325 Q330 300 350 330" dur="4.5s" repeatCount="indefinite"/>
+  <path d="M255 118 Q275 72 255 20" fill="none" stroke="url(#wave2)" stroke-width="2.5" stroke-linecap="round" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.15;0.6" dur="2.5s" repeatCount="indefinite"/>
+  </path>
+  <path d="M278 130 Q305 70 278 5" fill="none" stroke="url(#wave3)" stroke-width="2" stroke-linecap="round" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
   </path>
 
-  <!-- "RadioFlow" text -->
-  <text x="200" y="205" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="800" letter-spacing="2" fill="url(#text)" filter="url(#glow)">
+  <!-- Flow lines at bottom (animated waveform representing "Flow") -->
+  <path d="M100 320 Q140 285 180 315 Q220 345 260 305 Q300 265 340 310" fill="none" stroke="url(#wave1)" stroke-width="2.5" stroke-linecap="round" opacity="0.8" filter="url(#glow)">
+    <animate attributeName="d" values="M100 320 Q140 285 180 315 Q220 345 260 305 Q300 265 340 310;M100 310 Q140 340 180 305 Q220 275 260 315 Q300 350 340 300;M100 320 Q140 285 180 315 Q220 345 260 305 Q300 265 340 310" dur="3.5s" repeatCount="indefinite"/>
+  </path>
+  <path d="M110 340 Q150 315 190 335 Q230 355 270 325 Q310 295 340 340" fill="none" stroke="url(#wave2)" stroke-width="2" stroke-linecap="round" opacity="0.5">
+    <animate attributeName="d" values="M110 340 Q150 315 190 335 Q230 355 270 325 Q310 295 340 340;M110 330 Q150 350 190 325 Q230 300 270 340 Q310 365 340 330;M110 340 Q150 315 190 335 Q230 355 270 325 Q310 295 340 340" dur="4s" repeatCount="indefinite"/>
+  </path>
+  <path d="M120 355 Q160 340 200 355 Q240 370 280 345 Q320 320 350 355" fill="none" stroke="url(#wave3)" stroke-width="1.5" stroke-linecap="round" opacity="0.35">
+    <animate attributeName="d" values="M120 355 Q160 340 200 355 Q240 370 280 345 Q320 320 350 355;M120 348 Q160 365 200 348 Q240 335 280 358 Q320 370 350 345;M120 355 Q160 340 200 355 Q240 370 280 345 Q320 320 350 355" dur="4.5s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- "RadioFlow" text with multicolor gradient -->
+  <text x="200" y="205" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" letter-spacing="1.5" fill="url(#text)" filter="url(#glow)">
     RadioFlow
   </text>
 
   <!-- Subtitle tagline -->
-  <text x="200" y="235" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" letter-spacing="4" fill="#818CF8" opacity="0.7">
+  <text x="200" y="238" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" letter-spacing="5" fill="#818CF8" opacity="0.8">
     STREAM · DISCOVER · FLOW
   </text>
 </svg>

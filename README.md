@@ -61,6 +61,24 @@ The platform addresses the fundamental challenge of fragmented media intelligenc
 
 ---
 
+## Screenshots
+
+| View | Screenshot |
+|------|-----------|
+| **Main Grid** — all station cards | <img src="screenshots/01-main-grid.png" width="500" alt="Main grid"> |
+| **Genre Selection** — pick stations by genre | <img src="screenshots/02-genre-modal.png" width="500" alt="Genre modal"> |
+| **Country Selection** — pick stations by country | <img src="screenshots/03-country-modal.png" width="500" alt="Country modal"> |
+| **USA Stations** — with active player | <img src="screenshots/04-usa-player.png" width="500" alt="USA player"> |
+| **Upper Player** — NowPlaying card with waveform equalizer | <img src="screenshots/05-player-upper.png" width="500" alt="Upper player"> |
+| **Bottom Player Bar** — playback controls | <img src="screenshots/06-player-bottom.png" width="500" alt="Bottom player"> |
+| **Search** — station search overlay | <img src="screenshots/07-search.png" width="500" alt="Search"> |
+| **AI Chat** — LLM-powered chat assistant | <img src="screenshots/08-chat.png" width="500" alt="Chat"> |
+| **Settings** — preferences dialog | <img src="screenshots/09-settings.png" width="500" alt="Settings"> |
+| **404** — not-found page | <img src="screenshots/10-404.png" width="500" alt="404"> |
+| **Mobile** — responsive 540px breakpoint | <img src="screenshots/11-mobile.png" width="300" alt="Mobile"> |
+
+---
+
 <h2 id="why-radioflow">🎯 Why RadioFlow</h2>
 
 In the modern media intelligence landscape, teams face a fundamental challenge: tools are either simple but inflexible, or powerful but complex. **RadioFlow** was architected from the ground up to resolve this dichotomy.
@@ -851,30 +869,6 @@ Contact [@sanot-tech](https://github.com/sanot-tech) for inquiries.
 | **Security** | [CodeQL](https://codeql.github.com/) + [Dependabot](https://github.com/dependabot) | Supply chain security |
 | **CI/CD** | [GitHub Actions](https://github.com/features/actions) | Automated testing & deployment |
 | **Hosting** | [Vercel](https://vercel.com/) | Global edge delivery |
-
----
-
-## Screenshots
-
-| View | Screenshot |
-|------|-----------|
-| **Main Page** — station grid with search, genres, player | <img src="screenshots/01-main.png" width="500" alt="Main page"> |
-| **Favorites** — saved stations grid | <img src="screenshots/02-favorites.png" width="500" alt="Favorites"> |
-| **Genre Explorer** — stations by genre | <img src="screenshots/03-genre-rock.png" width="500" alt="Genre: Rock"> |
-| **Country Explorer** — stations by country | <img src="screenshots/04-country-russia.png" width="500" alt="Country: Russia"> |
-| **Top Stations** — most popular stations | <img src="screenshots/05-top-vote.png" width="500" alt="Top stations"> |
-| **Trending** — trending stations | <img src="screenshots/06-trending.png" width="500" alt="Trending"> |
-| **Search Overlay** — search stations by name | <img src="screenshots/07-search-overlay.png" width="500" alt="Search overlay"> |
-| **AI Chat** — LLM-powered chat assistant | <img src="screenshots/08-chat-panel.png" width="500" alt="AI Chat"> |
-| **Now Playing** — active player with station info | <img src="screenshots/09-now-playing.png" width="500" alt="Now Playing"> |
-| **Player Active** — player controls visible | <img src="screenshots/10-player-active.png" width="500" alt="Player active"> |
-| **404 Page** — not-found error | <img src="screenshots/11-404.png" width="500" alt="404 page"> |
-| **Settings** — preferences dialog | <img src="screenshots/12-settings-dialog.png" width="500" alt="Settings"> |
-| **Mobile** — responsive 375px breakpoint | <img src="screenshots/13-mobile-main.png" width="300" alt="Mobile view"> |
-
----
-
-Special thanks to the open-source community for making projects like this possible.
 
 ---
 
