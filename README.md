@@ -68,14 +68,13 @@ The platform addresses the fundamental challenge of fragmented media intelligenc
 | **Main Grid** — all station cards | <img src="screenshots/01-main-grid.png" width="500" alt="Main grid"> |
 | **Genre Selection** — pick stations by genre | <img src="screenshots/02-genre-modal.png" width="500" alt="Genre modal"> |
 | **Country Selection** — pick stations by country | <img src="screenshots/03-country-modal.png" width="500" alt="Country modal"> |
-| **USA Stations** — with active player | <img src="screenshots/04-usa-player.png" width="500" alt="USA player"> |
-| **Upper Player** — NowPlaying card with waveform equalizer | <img src="screenshots/05-player-upper.png" width="500" alt="Upper player"> |
+| **Upper Player** — NowPlaying card with waveform equalizer | <img src="screenshots/04-player-upper.png" width="500" alt="Player upper"> |
 | **Bottom Player Bar** — playback controls | <img src="screenshots/06-player-bottom.png" width="500" alt="Bottom player"> |
 | **Search** — station search overlay | <img src="screenshots/07-search.png" width="500" alt="Search"> |
 | **AI Chat** — LLM-powered chat assistant | <img src="screenshots/08-chat.png" width="500" alt="Chat"> |
 | **Settings** — preferences dialog | <img src="screenshots/09-settings.png" width="500" alt="Settings"> |
 | **404** — not-found page | <img src="screenshots/10-404.png" width="500" alt="404"> |
-| **Mobile** — responsive 540px breakpoint | <img src="screenshots/11-mobile.png" width="300" alt="Mobile"> |
+| **Mobile** — responsive 768px breakpoint | <img src="screenshots/11-mobile.png" width="350" alt="Mobile"> |
 
 ---
 
