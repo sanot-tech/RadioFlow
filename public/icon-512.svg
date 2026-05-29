@@ -1,21 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#1E1B4B"/>
+      <stop offset="50%" stop-color="#312E81"/>
       <stop offset="100%" stop-color="#0F0F23"/>
     </linearGradient>
+    <linearGradient id="wave" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#4338CA"/>
+    </linearGradient>
+    <filter id="glow">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#4338CA" flood-opacity="0.5"/>
+    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="512" height="512" rx="80" fill="url(#bg)"/>
-  <circle cx="256" cy="256" r="140" stroke="#818CF8" stroke-width="12" fill="none" opacity="0.4"/>
-  <circle cx="256" cy="256" r="90" stroke="#A78BFA" stroke-width="8" fill="none" opacity="0.6"/>
-  <circle cx="256" cy="256" r="45" fill="#818CF8"/>
-  <circle cx="256" cy="256" r="18" fill="#C4B5FD"/>
-  <path d="M256 116 V180" stroke="#818CF8" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
-  <path d="M256 332 V396" stroke="#818CF8" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
-  <path d="M116 256 H180" stroke="#818CF8" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
-  <path d="M332 256 H396" stroke="#818CF8" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
-  <path d="M172 172 L218 218" stroke="#818CF8" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
-  <path d="M294 294 L340 340" stroke="#818CF8" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
-  <path d="M340 172 L294 218" stroke="#818CF8" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
-  <path d="M218 294 L172 340" stroke="#818CF8" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Radio tower mast -->
+  <line x1="256" y1="380" x2="256" y2="145" stroke="#818CF8" stroke-width="8" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Tower base -->
+  <path d="M230 380 L256 350 L282 380" stroke="#818CF8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="244" y1="365" x2="268" y2="365" stroke="#22C55E" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Antenna -->
+  <line x1="256" y1="145" x2="256" y2="110" stroke="#22C55E" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="100" r="10" fill="#22C55E" opacity="0.9"/>
+
+  <!-- Radio waves -->
+  <path d="M205 130 Q190 95 205 55" stroke="#22C55E" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+  <path d="M307 130 Q322 95 307 55" stroke="#22C55E" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+
+  <path d="M175 145 Q155 95 175 35" stroke="#818CF8" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  <path d="M337 145 Q357 95 337 35" stroke="#818CF8" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+
+  <path d="M145 160 Q120 95 145 15" stroke="#A78BFA" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+  <path d="M367 160 Q392 95 367 15" stroke="#A78BFA" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Flow wave at bottom -->
+  <path d="M130 440 Q190 400 256 420 Q322 440 382 410" stroke="url(#wave)" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  <path d="M150 465 Q210 435 270 455 Q330 475 370 445" stroke="#818CF8" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
 </svg>

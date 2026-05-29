@@ -1,11 +1,9 @@
-<p align="center">
+<div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://radioflow.app/logo-dark.svg">
-    <img alt="RadioFlow" src="https://radioflow.app/logo-light.svg" width="320">
+    <source media="(prefers-color-scheme: dark)" srcset="https://radio-flow.vercel.app/logo.svg">
+    <img alt="RadioFlow" src="https://radio-flow.vercel.app/logo.svg" width="280">
   </picture>
-</p>
-
-<h1 align="center">RadioFlow</h1>
+</div>
 
 <p align="center">
   <strong>⚡ Next-Generation Internet Radio Intelligence Platform</strong><br>
@@ -560,7 +558,7 @@ RadioFlow/
 │   └── radio-proxy.js                # Radio Browser API proxy (ESM)
 │
 ├── cli/                              # CLI tools
-│   └── enterprise-gate.ts            # License demo gate
+│       └── license-gate.ts              # License demo gate
 │
 ├── public/                           # Static assets
 │   ├── favicon.ico
@@ -662,7 +660,7 @@ RadioFlow/
 ├── CHANGELOG.md                      # Release history
 ├── CODE_OF_CONDUCT.md                # Community standards
 ├── CONTRIBUTING.md                   # Contribution guide
-├── ENTERPRISE_PROTECTION.md          # Protection policy
+├── PROTECTION.md                     # Protection policy
 ├── LICENSE                           # MIT License
 ├── SECURITY.md                       # Security vulnerability policy
 ├── README.md                         # This file
@@ -801,7 +799,7 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed release history.
 
 ---
 
-<h2 id="enterprise">🏢 Licensing</h2>
+<h2 id="licensing">⚖️ Licensing</h2>
 
 ### Licensing
 
@@ -853,6 +851,28 @@ Contact [@sanot-tech](https://github.com/sanot-tech) for inquiries.
 | **Security** | [CodeQL](https://codeql.github.com/) + [Dependabot](https://github.com/dependabot) | Supply chain security |
 | **CI/CD** | [GitHub Actions](https://github.com/features/actions) | Automated testing & deployment |
 | **Hosting** | [Vercel](https://vercel.com/) | Global edge delivery |
+
+---
+
+## Screenshots
+
+| View | Screenshot |
+|------|-----------|
+| **Main Page** — station grid with search, genres, player | <img src="screenshots/01-main.png" width="500" alt="Main page"> |
+| **Favorites** — saved stations grid | <img src="screenshots/02-favorites.png" width="500" alt="Favorites"> |
+| **Genre Explorer** — stations by genre | <img src="screenshots/03-genre-rock.png" width="500" alt="Genre: Rock"> |
+| **Country Explorer** — stations by country | <img src="screenshots/04-country-russia.png" width="500" alt="Country: Russia"> |
+| **Top Stations** — most popular stations | <img src="screenshots/05-top-vote.png" width="500" alt="Top stations"> |
+| **Trending** — trending stations | <img src="screenshots/06-trending.png" width="500" alt="Trending"> |
+| **Search Overlay** — search stations by name | <img src="screenshots/07-search-overlay.png" width="500" alt="Search overlay"> |
+| **AI Chat** — LLM-powered chat assistant | <img src="screenshots/08-chat-panel.png" width="500" alt="AI Chat"> |
+| **Now Playing** — active player with station info | <img src="screenshots/09-now-playing.png" width="500" alt="Now Playing"> |
+| **Player Active** — player controls visible | <img src="screenshots/10-player-active.png" width="500" alt="Player active"> |
+| **404 Page** — not-found error | <img src="screenshots/11-404.png" width="500" alt="404 page"> |
+| **Settings** — preferences dialog | <img src="screenshots/12-settings-dialog.png" width="500" alt="Settings"> |
+| **Mobile** — responsive 375px breakpoint | <img src="screenshots/13-mobile-main.png" width="300" alt="Mobile view"> |
+
+---
 
 Special thanks to the open-source community for making projects like this possible.
 

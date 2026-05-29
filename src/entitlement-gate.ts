@@ -16,11 +16,11 @@ try {
     const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC'
     console.error(`
   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-  |                 ENTERPRISE LICENSE GATE                        |
+  |                    LICENSE GATE                                |
   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
   |                                                               |
-  |  This software is protected by the Enterprise License         |
-  |  and Intellectual Property Protection Framework v1.0.         |
+  |  This software is protected by the License and Intellectual   |
+  |  Property Protection Framework v1.0.                          |
   |                                                               |
   |  UNAUTHORIZED ACCESS DETECTED                                 |
   |                                                               |

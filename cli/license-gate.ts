@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * ENTERPRISE LICENSE & DEMO GATE
+ * LICENSE & DEMO GATE
  *
  * RadioFlow — Next-Generation Internet Radio Intelligence Platform
  * Classification: Internal Demo Build
  *
- * This software is protected by the Enterprise Intellectual Property
+ * This software is protected by the Intellectual Property
  * Protection Framework. Unauthorized execution is prohibited.
  *
  * Authorized access: https://github.com/sanot-tech/RadioFlow/issues
@@ -25,7 +25,7 @@ const BANNER = `
      R   R  A   A  DDDD   III   OOO     F      LLLL   OOO   W   W
 
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-     INTERNET RADIO INTELLIGENCE PLATFORM  |  ENTERPRISE BUILD v${VERSION}
+     INTERNET RADIO INTELLIGENCE PLATFORM  |  LICENSED BUILD v${VERSION}
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 `
 
@@ -59,14 +59,14 @@ function printStack(): void {
     * Vite 6                          - Build tooling, tree-shaking
     * Tailwind CSS 3                  - Utility-first styling
     * TanStack Query 5                - Data fetching & caching
-    * shadcn/ui                       - Enterprise design system
+    * shadcn/ui                       - Production design system
     * Capacitor 7                     - Native mobile bridge
     * CodeQL + Dependabot             - Supply chain security
   `)
 }
 
-function printEnterprise(): void {
-  printSection('ENTERPRISE FEATURES', `
+function printProFeatures(): void {
+  printSection('PRODUCTION FEATURES', `
     * Vercel Edge Network             - 200+ POPs global delivery
     * Sub-second API failover         - 3 geo-redundant radio-browser nodes
     * Tree-shaken bundles             - 156KB gzip production build
@@ -93,7 +93,7 @@ function printLinks(): void {
   |                                                                           |
   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
   |                                                                           |
-  |  Need a license key or enterprise access?                                |
+  |  Need a license key or licensed access?                                |
   |  -> Open an issue at ${REPO}/issues|
   |                                                                           |
   |  For development builds, set NODE_ENV=development                         |
@@ -104,7 +104,7 @@ function printLinks(): void {
 }
 
 function printFooter(): void {
-  console.log(`  RadioFlow v${VERSION}  |  Enterprise Build  |  Copyright (c) 2026 sanot-tech`)
+  console.log(`  RadioFlow v${VERSION}  |  Licensed Build  |  Copyright (c) 2026 sanot-tech`)
   console.log(`  All Rights Reserved.  |  Authorized use only.\n`)
 }
 
@@ -124,7 +124,7 @@ function main(): void {
   |                    LICENSE VALIDATION REQUIRED                            |
   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
   |                                                                           |
-  |  This is a proprietary enterprise build. Execution requires a valid       |
+  |  This is a proprietary licensed build. Execution requires a valid       |
   |  entitlement key.                                                         |
   |                                                                           |
   |  HOW TO OBTAIN ACCESS:                                                    |
@@ -136,7 +136,7 @@ function main(): void {
   |  EVALUATION:                                                              |
   |                                                                           |
   |  To run without a key (development only):                                |
-  |     $ NODE_ENV=development npx tsx cli/enterprise-gate.ts               |
+  |     $ NODE_ENV=development npx tsx cli/license-gate.ts               |
   |                                                                           |
   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
     `)
@@ -145,7 +145,7 @@ function main(): void {
 
   printFeatures()
   printStack()
-  printEnterprise()
+  printProFeatures()
   printLinks()
   printFooter()
 }
