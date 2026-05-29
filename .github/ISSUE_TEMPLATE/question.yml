@@ -1,0 +1,56 @@
+name: Question / Support
+description: Ask a question about using RelaxSound or get help with setup
+title: "[Question]: "
+labels: ["question"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ❓ Question / Support — RelaxSound
+
+        Need help? Check our [Documentation](https://github.com/sanot-tech/RelaxSound#readme) and [Discussions](https://github.com/sanot-tech/RelaxSound/discussions) first — your question may already be answered!
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Before Asking
+      options:
+        - label: I have read the [documentation](https://github.com/sanot-tech/RelaxSound#readme)
+          required: true
+        - label: I have searched [Discussions](https://github.com/sanot-tech/RelaxSound/discussions) for similar questions
+          required: true
+        - label: I have searched [existing issues](https://github.com/sanot-tech/RelaxSound/issues) for related topics
+          required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Setup / Installation
+        - Usage / How-to
+        - Features & capabilities
+        - Mobile (Capacitor) / PWA
+        - Deployment / hosting
+        - Customization
+        - Bug or unexpected behavior? → Use Bug Report instead
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: Be as specific as possible
+      placeholder: "How can I add my own custom sound files to RelaxSound? I have a collection of nature recordings I'd like to use..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context & Details
+      description: What are you trying to achieve? What have you tried?
+      placeholder: "I want to add .mp3 files of local nature sounds. I tried placing them in the public/audio folder but they don't show up in the library."

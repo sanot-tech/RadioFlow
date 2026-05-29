@@ -1,0 +1,62 @@
+name: Auto-label PRs & Issues
+
+on:
+  pull_request_target:
+    types: [opened, edited]
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  label:
+    name: Label by Pattern
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const payload = context.payload;
+            const item = payload.pull_request || payload.issue;
+            const title = (item.title || '').toLowerCase();
+            const body = (item.body || '').toLowerCase();
+            const combined = `${title} ${body}`;
+
+            const rules = [
+              { patterns: ['feat', 'feature', 'new'], label: 'feature' },
+              { patterns: ['fix', 'bug', 'error', 'crash'], label: 'bug' },
+              { patterns: ['docs', 'documentation'], label: 'documentation' },
+              { patterns: ['refactor', 'cleanup'], label: 'refactor' },
+              { patterns: ['test', 'testing', 'coverage'], label: 'testing' },
+              { patterns: ['perf', 'performance', 'optimize'], label: 'performance' },
+              { patterns: ['chore', 'deps', 'dependency'], label: 'chore' },
+              { patterns: ['ci', 'cd', 'deploy', 'workflow'], label: 'ci' },
+              { patterns: ['security', 'vulnerability'], label: 'security' },
+              { patterns: ['ui', 'ux', 'design', 'style'], label: 'ui' },
+              { patterns: ['sound', 'audio', 'music'], label: 'audio' },
+              { patterns: ['timer', 'alarm', 'clock'], label: 'timer' },
+            ];
+
+            const labelsToAdd = [];
+            for (const rule of rules) {
+              for (const pattern of rule.patterns) {
+                if (combined.includes(pattern)) {
+                  labelsToAdd.push(rule.label);
+                  break;
+                }
+              }
+            }
+
+            if (labelsToAdd.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: item.number,
+                labels: labelsToAdd
+              });
+              console.log(`🏷️  Added: ${labelsToAdd.join(', ')}`);
+            }

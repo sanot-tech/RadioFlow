@@ -1,0 +1,27 @@
+# Code Owners — RadioFlow
+
+* @Sanot
+
+# Core application
+/src/components/      @Sanot
+/src/hooks/           @Sanot
+/src/lib/             @Sanot
+/src/contexts/        @Sanot
+
+# Configuration
+/*.json               @Sanot
+/*.ts                 @Sanot
+/vite.config.ts       @Sanot
+/tailwind.config.ts   @Sanot
+
+# Documentation
+/*.md                 @Sanot
+
+# GitHub configuration
+/.github/             @Sanot
+/.github/workflows/   @Sanot
+
+# Security
+/SECURITY.md          @Sanot
+/CONTRIBUTING.md      @Sanot
+/CODE_OF_CONDUCT.md   @Sanot

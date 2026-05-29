@@ -1,0 +1,85 @@
+name: Refactoring
+description: Code improvements that don't change functionality — better structure, readability, maintainability
+title: "[Refactor]: "
+labels: ["refactoring"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🔧 Refactoring — RelaxSound
+
+        Improving code quality without changing external behavior.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have verified this does NOT change any user-facing behavior
+          required: true
+        - label: I have searched for related refactoring issues
+          required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Code Area
+      options:
+        - Component structure
+        - State management
+        - Audio engine
+        - Hooks / utilities
+        - Types / interfaces
+        - Tests
+        - Build / tooling
+        - Routing
+        - Styles / CSS
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: motivation
+    attributes:
+      label: Motivation
+      options:
+        - Reduce duplication (DRY)
+        - Improve type safety
+        - Better separation of concerns
+        - Performance optimization
+        - Readability / maintainability
+        - Testability
+        - Adopt new pattern / best practice
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Refactoring Description
+      description: What needs to change?
+      placeholder: "The sound playback logic is currently spread across SoundMixer.tsx, AudioContext.tsx, and useAudioEngine.ts. Consolidate all audio logic into a single AudioEngine class..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: How do we verify this is a safe refactoring?
+      placeholder: |
+        - [ ] All existing tests pass
+        - [ ] TypeScript compiles with --noEmit (strict mode)
+        - [ ] Manual smoke test: play sounds, adjust volume, use timer
+        - [ ] Bundle size does not increase significantly
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Architecture notes, design patterns to follow
+      placeholder: "Consider using the Strategy pattern for different audio backends (Web Audio API vs Howler.js)."

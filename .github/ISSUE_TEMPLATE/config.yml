@@ -1,0 +1,23 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Documentation
+    url: https://github.com/sanot-tech/RadioFlow#readme
+    about: Check the documentation before creating an issue
+  - name: 💬 GitHub Discussions
+    url: https://github.com/sanot-tech/RadioFlow/discussions
+    about: Ask questions, share ideas, and get help from the community
+  - name: 🚀 Feature Requests & Ideas
+    url: https://github.com/sanot-tech/RadioFlow/discussions/categories/ideas
+    about: Share and vote on feature ideas in Discussions
+  - name: ❓ Questions & Help
+    url: https://github.com/sanot-tech/RadioFlow/discussions/categories/q-a
+    about: Ask the community for help
+  - name: 🎮 Discord / Community Chat
+    url: https://github.com/sanot-tech/RadioFlow/discussions
+    about: Join the community conversation
+  - name: 🔒 Security Vulnerability
+    url: https://github.com/sanot-tech/RadioFlow/blob/main/SECURITY.md
+    about: Please report security vulnerabilities via our Security Policy
+  - name: 📋 Changelog
+    url: https://github.com/sanot-tech/RadioFlow/releases
+    about: See what's new in each release

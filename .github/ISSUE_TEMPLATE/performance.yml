@@ -1,0 +1,89 @@
+name: Performance Report
+description: Report performance issues — slow loading, high CPU/memory, lag, battery drain
+title: "[Perf]: "
+labels: ["performance"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚡ Performance Report — RelaxSound
+
+        Help us make RelaxSound faster and more efficient.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have searched [existing issues](https://github.com/sanot-tech/RelaxSound/issues) and this is not a duplicate
+          required: true
+        - label: I am using the [latest version](https://github.com/sanot-tech/RelaxSound/releases)
+          required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected Area
+      options:
+        - Initial load time
+        - Audio playback / decoding
+        - UI responsiveness
+        - Memory usage
+        - Battery drain (mobile)
+        - Animation / transitions
+        - Timer / scheduling
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device Class
+      options:
+        - High-end desktop (recent CPU, 16GB+ RAM)
+        - Mid-range desktop
+        - Low-end / older desktop
+        - High-end mobile (iPhone 15 Pro, Galaxy S24)
+        - Mid-range mobile
+        - Low-end / older mobile
+        - Tablet
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Performance Issue
+      description: Describe the performance problem you're experiencing
+      placeholder: "The app takes over 10 seconds to load the sound list, and switching between sounds causes noticeable audio dropouts..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Measured Metrics
+      description: Any numbers you can share (load time, FPS, memory usage, CPU %)
+      placeholder: "Initial load: 12s, Memory: 450MB after 10 min, CPU: 25% while playing 3 sounds"
+      render: shell
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce the performance issue?
+      placeholder: |
+        1. Open RelaxSound on a mid-range Android phone
+        2. Add 4 sounds to the mixer (Rain, Thunder, Ocean, Wind)
+        3. Set all volume to 50%
+        4. Observe UI stutter when adjusting any slider
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Browser, device details, other tabs open

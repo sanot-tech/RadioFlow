@@ -1,0 +1,107 @@
+name: Feature Request
+description: Suggest an idea or enhancement for RelaxSound
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 💡 Feature Request — RelaxSound
+
+        Thanks for suggesting an improvement! Help us understand your idea by providing a clear and detailed description.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have searched [existing issues](https://github.com/sanot-tech/RelaxSound/issues) and this is not a duplicate
+          required: true
+        - label: I have checked the [roadmap](https://github.com/sanot-tech/RelaxSound/projects) and this feature is not already planned
+          required: true
+        - label: I have reviewed the [documentation](https://github.com/sanot-tech/RelaxSound#readme) for existing solutions
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### 📋 Feature Details
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: What area does this feature relate to?
+      options:
+        - New Sound / Audio Track
+        - Timer / Scheduling
+        - Mixer / Volume / EQ
+        - UI / Visuals / Theme
+        - Performance
+        - Mobile App (Capacitor)
+        - PWA / Offline
+        - Accessibility
+        - Integrations / Export
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Proposed Priority
+      description: How important is this feature to you?
+      options:
+        - 🟢 Low — Nice-to-have enhancement
+        - 🟡 Medium — Would significantly improve experience
+        - 🔴 High — Critical gap affecting daily use
+        - ⚫ Urgent — Blocking functionality
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: Is your feature request related to a problem? Describe it clearly
+      placeholder: "I use RelaxSound to study, and I have to manually restart my sound mix every time I start a new Pomodoro session. There is no way to save and quickly load a preset sound combination..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like in detail. Include mockups or diagrams if available
+      placeholder: "I would like a 'Save Preset' feature that stores the current combination of sounds and their volume levels. A dropdown in the mixer area would let me switch between saved presets instantly."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative solutions or workarounds you've considered
+      placeholder: "I tried leaving multiple tabs open with different sounds, but that drains battery. I also tried using a third-party audio mixer, but it lacks the curated RelaxSound library."
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Expected Impact
+      description: How would this feature benefit users or the project?
+      placeholder: "Students and workers using RelaxSound for focus sessions would save 15-20 seconds per session. Power users with complex sound mixes would find the app much more usable for daily routines."
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### 📎 Additional Information
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add mockups, screenshots, reference implementations, or any other supporting information
+      placeholder: "I've attached a wireframe of how the preset save/load UI could work. The myNoise app has a similar feature that I find very useful."

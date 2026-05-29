@@ -1,0 +1,95 @@
+name: Security Vulnerability
+description: Report a security vulnerability in RelaxSound (private disclosure)
+title: "[Security]: "
+labels: ["security"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🔒 Security Vulnerability — RelaxSound
+
+        Please report security vulnerabilities **responsibly**. For critical issues, consider using our private disclosure process instead of creating a public issue.
+
+        If this is a **critical security issue**, please email us directly or check our SECURITY.md for PGP keys.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have read the [Security Policy](https://github.com/sanot-tech/RelaxSound/blob/main/SECURITY.md)
+          required: true
+        - label: I have checked that this vulnerability is not already publicly disclosed
+          required: true
+        - label: This report does NOT contain exploit code or sensitive details in the public description
+          required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity Assessment (CVSS)
+      options:
+        - ⬛ Critical (9.0-10.0) — Remote code execution, auth bypass
+        - 🔴 High (7.0-8.9) — Data exposure, privilege escalation
+        - 🟡 Medium (4.0-6.9) — Limited impact, requires user interaction
+        - 🟢 Low (0.1-3.9) — Minor information disclosure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Vulnerability Type
+      options:
+        - Cross-Site Scripting (XSS)
+        - Cross-Site Request Forgery (CSRF)
+        - Insecure Direct Object Reference (IDOR)
+        - Server-Side Request Forgery (SSRF)
+        - Authentication / Authorization bypass
+        - Data exposure / leak
+        - Dependency vulnerability
+        - Insecure configuration
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Vulnerability Description
+      description: Describe the vulnerability (keep details high-level for public issues)
+      placeholder: "The audio file endpoint does not validate user permissions, allowing unauthorized access to premium sound packs..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Potential Impact
+      description: What could an attacker achieve?
+      placeholder: "An attacker could access all sound files without authentication, including any future premium content."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction Steps (abridged)
+      description: High-level steps without revealing exploit details publicly
+      placeholder: "1. Intercept API request to /api/sounds/premium\n2. Remove auth token\n3. Observe that premium sounds are returned"
+    validations:
+      required: true
+
+  - type: textarea
+    id: remediation
+    attributes:
+      label: Suggested Remediation
+      description: Any suggestions for fixing the vulnerability
+      placeholder: "Add authentication middleware to the audio file route that checks user subscription status."
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        Thank you for helping keep RelaxSound and its users safe! We aim to acknowledge reports within 48 hours.

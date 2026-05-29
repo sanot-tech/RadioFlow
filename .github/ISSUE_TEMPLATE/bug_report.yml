@@ -1,0 +1,171 @@
+name: Bug Report
+description: Report a reproducible bug or unexpected behavior in RelaxSound
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🐛 Bug Report — RelaxSound
+
+        Thank you for taking the time to report a bug. Your feedback helps us improve the reliability of RelaxSound. Please provide as much detail as possible to help us resolve the issue quickly.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      description: Before submitting, please confirm the following
+      options:
+        - label: I have searched [existing issues](https://github.com/sanot-tech/RelaxSound/issues) and this is not a duplicate
+          required: true
+        - label: I am running the [latest version](https://github.com/sanot-tech/RelaxSound/releases)
+          required: true
+        - label: I can reliably reproduce this bug under the conditions described
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### 🌍 Environment
+
+  - type: dropdown
+    id: environment-os
+    attributes:
+      label: Operating System
+      options:
+        - macOS 15 Sequoia
+        - macOS 14 Sonoma
+        - Windows 11
+        - Windows 10
+        - Ubuntu 24.04
+        - Ubuntu 22.04
+        - iOS 18
+        - iOS 17
+        - Android 15
+        - Android 14
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment-browser
+    attributes:
+      label: Browser / Runtime
+      options:
+        - Chrome 128+
+        - Chrome 127
+        - Firefox 130+
+        - Firefox 129
+        - Safari 18
+        - Safari 17.5
+        - Edge 128+
+        - Brave
+        - Capacitor (Native iOS)
+        - Capacitor (Native Android)
+        - PWA (Standalone)
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment-component
+    attributes:
+      label: Affected Component
+      options:
+        - Audio Player / Playback
+        - Timer
+        - Sound Library / Browser
+        - Mixer / Volume Control
+        - UI / Visuals / Theme
+        - Settings / Preferences
+        - Mobile (Capacitor)
+        - PWA / Offline
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: environment-version
+    attributes:
+      label: RelaxSound Version
+      description: What version are you using? (check the app footer or package.json)
+      placeholder: e.g., v1.2.0
+    validations:
+      required: true
+
+  - type: input
+    id: environment-device
+    attributes:
+      label: Device (if mobile)
+      description: e.g., iPhone 15, Samsung Galaxy S24, iPad Air
+      placeholder: e.g., iPhone 15 Pro
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### 🔍 Bug Details
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: "When I play rain sounds and switch to a different tab, the audio stops after approximately 30 seconds..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Exact, numbered steps to reproduce the behavior
+      placeholder: |
+        1. Open RelaxSound at https://relaxsound.vercel.app
+        2. Select 'Rain' from the sound library
+        3. Press play and set the timer to 15 minutes
+        4. Switch to a different browser tab
+        5. Wait 30 seconds — observe that audio stops playing
+      render: bash
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: "The rain sound should continue playing in the background even when the tab is not active, for the full duration of the timer."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened? Include screenshots, screen recordings, or console output if applicable
+      placeholder: "The audio stops after exactly 30 seconds of tab inactivity. The timer continues counting down but no sound is heard. Resuming the tab does not restore audio."
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### 📋 Logs & Additional Context
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Log Output
+      description: Copy and paste any relevant log output (browser console, terminal, network requests). The content will be auto-formatted.
+      render: shell
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other information that might be relevant (related issues, possible root cause, workarounds attempted)
+      placeholder: "This might be related to autoplay policies in Chrome. A workaround is to keep the tab active."

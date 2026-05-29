@@ -1,0 +1,246 @@
+Project Plan for RadioFlow: A Mobile Radio Streaming App
+1. Executive Summary
+As the Project Manager for RadioFlow, this document outlines a comprehensive plan for developing a progressive web app (PWA) that functions as a native-like mobile radio streaming application. RadioFlow targets a global audience of millions in 2025, leveraging the free Radio Browser API for live station data. The app emphasizes a premium, dark-themed user interface inspired by Spotify and YouTube Music, with core features like random station playback, genre browsing, song search (via real-time metadata), and a compact one-screen layout.
+The project adopts an indie-development approach: minimal dependencies, rapid prototyping in Replit, and hybrid deployment via Capacitor for iOS/Android. Estimated timeline: 4-6 weeks for MVP, with a focus on scalability, accessibility, and user retention.  Total budget: $5,000-$10,000 (assuming freelance or solo dev), covering tools and testing.
+Key differentiators:
+
+Dynamic genre list from API (over 100 options, no static limits).
+Real-time song search across stations.
+Optimized for small screens with modals and carousels.
+
+This plan ensures alignment with 2025 best practices: AI-simulated recommendations, offline caching, and seamless PWA installation.
+2. Project Objectives
+Business Objectives
+
+Launch an MVP by Q4 2025 to capture the growing online radio market (projected 500M+ users globally).
+Achieve 100,000 installs in the first year via PWA prompts and app stores.
+Monetize through optional premium features (ad-free, higher bitrate) or donations.
+
+Technical Objectives
+
+Integrate Radio Browser API for free, real-time station data (stations, tags, metadata).
+Ensure 99% uptime and low latency (<2s stream start) for streaming.
+Support offline mode via caching (last played stations, favorites).
+
+User Objectives
+
+Provide intuitive discovery: Random stations, genre exploration, and song search (find stations playing a specific track now).
+Deliver a premium UX: Dark theme, animations, accessibility (WCAG 3.0 compliant).
+
+3. Project Scope
+In-Scope
+
+Core app development: PWA with Capacitor wrapper for native feel.
+Features: Home screen (Now Playing, equalizer, controls, triggers for genres/songs, featured carousel), modals (genres grid, song search results), mini-player.
+API Integration: Radio Browser for all data (stations by country/tag, metadata parsing for "now playing").
+UI/UX: Dark theme only, micro-animations (Framer Motion), adaptive for mobile (no tablet optimizations yet).
+Testing: Unit, integration, user beta on 10-20 devices.
+Deployment: Replit prototype, then GitHub Pages for PWA, app stores via Capacitor.
+
+Out-of-Scope
+
+Backend server (use API directly; no custom auth/database).
+Advanced AI (e.g., personalized recommendations—simulate via tags for MVP).
+Multi-platform desktop support.
+Monetization integration (defer to v2).
+Live broadcasting or user-generated content.
+
+4. Requirements
+Functional Requirements
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FeatureDescriptionPriorityHome ScreenCompact layout: Header, Now Playing hero (poster, title, subtitle), animated equalizer (6 bars, pulsing), controls (play/pause, prev/next, random—integrated seamlessly with gradient icons), genre/song triggers (buttons opening modals), featured stations carousel (4-5 cards, horizontal scroll).HighGenre Browsing"Browse Genres" button opens bottom sheet modal with search bar, 4-column grid of 100+ dynamic genres (from API tags, e.g., Afrobeat to 90s). Selection filters stations.HighSong Search"Search Songs" button opens modal with debounced search (250ms), displaying stations where the queried song/artist is currently playing (via metadata parsing). Results: Station cards with "Now Playing" info, play buttons.HighPlaybackStream via Howler.js; background play in PWA; random station fetches a surprise from API.HighMini-PlayerSticky bottom bar for ongoing playback (thumbnail, title, pause). Swipe-up expands.MediumFavorites/HistoryLocalStorage for saving stations; list view in settings modal.MediumSettingsTheme toggle (dark only for MVP), quality (bitrate), privacy link.Low
+Non-Functional Requirements
+
+Performance: Load time <3s, stream buffer <5s; use TanStack Query for caching.
+Security: No user data; HTTPS for API calls.
+Accessibility: ARIA labels, high contrast, min 40x40px tap targets.
+Scalability: Handle 1M+ users via API (no server-side load).
+Compatibility: iOS 18+, Android 14+, modern browsers.
+
+5. Technical Architecture
+Tech Stack
+
+Frontend: React 19 + TypeScript 5.5+ (hooks, suspense).
+UI Libraries: Shadcn/UI + Tailwind CSS (dark theme), Framer Motion (100+ animations: scales, staggers, gestures).
+Audio: Howler.js (streaming, metadata parsing for songs).
+Data: TanStack Query (API caching), Zod (schema validation).
+Icons: Lucide (vector, animated).
+Build: Vite (fast bundling).
+PWA: Manifest.json, service workers for offline.
+Hybrid: Capacitor (iOS/Android wrappers).
+Prototyping: Replit (initial dev environment).
+
+Data Flow
+
+Fetch stations/genres from Radio Browser API (e.g., /json/stations/bytag/{tag}).
+Song search: Parse stream metadata (ICEcast/Shoutcast) via Howler.
+Offline: Cache via IndexedDB/LocalStorage.
+
+Design Guidelines
+
+Colors: Background #121212, accent #1DB954.
+Layout: Mobile-first, adaptive (media queries for spacing).
+Animations: Micro (120ms) for buttons, stagger (80ms) for lists.
+
+6. Development Roadmap
+Phases and Milestones
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PhaseTasksDurationDeliverablesPlanningRequirements gathering, wireframes (Figma), API research.1 weekProject plan, mockups.PrototypingSetup Replit, implement core UI (home screen, modals), API integration.1-2 weeksWorking prototype in browser.DevelopmentAdd features (playback, search, animations), optimize for mobile.2 weeksFull MVP code.TestingUnit tests (Jest), manual QA, beta user feedback.1 weekBug-free build.DeploymentCapacitor setup, app store submissions, PWA hosting.1 weekLive app.
+Total: 6-7 weeks. Use Agile: Weekly sprints, daily stand-ups if team-based.
+7. Team and Resources
+
+Project Manager: Oversees timeline, risks (me).
+Developer: 1-2 full-stack (React/TS experts, freelance via Upwork).
+Designer: Part-time for mockups (Figma).
+Tools: Replit (free), GitHub (version control), Figma (design), Lighthouse (performance audits).
+External: Radio Browser API (free), Capacitor (open-source).
+
+8. Risk Management
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RiskProbabilityImpactMitigationAPI DowntimeMediumHighCache data, fallback to local mocks.CORS IssuesLowMediumUse proxy in dev (e.g., allorigins.win).Performance on Low-End DevicesMediumMediumOptimize with lazy loading, virtualization.App Store RejectionLowHighFollow guidelines (no illegal streams).Scope CreepHighMediumStrict MVP focus; defer features.
+9. Budget Estimate
+
+Development: $3,000-$7,000 (freelance rates: $50/hr x 80-140 hours).
+Tools/Hosting: $500 (domain, app store fees).
+Testing/Marketing: $500 (beta tools, promo).
+Total: $4,000-$8,000 (indie scale; no salaries).
+
+10. Timeline
+
+Kickoff: October 1, 2025.
+MVP Launch: November 15, 2025.
+Post-Launch: Iterations based on user feedback (monthly updates).
+
+11. Success Metrics
+
+Downloads: 10,000 in first month.
+Retention: 30% DAU/MAU.
+Ratings: 4.5+ on app stores.
+Performance: 95% crash-free sessions.
+Feedback: NPS >70 via in-app surveys.
+
+This plan positions RadioFlow as a competitive, user-centric app in the 2025 radio streaming landscape. Next steps: Approve plan and initiate prototyping.

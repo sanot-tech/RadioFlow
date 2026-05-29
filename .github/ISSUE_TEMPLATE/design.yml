@@ -1,0 +1,76 @@
+name: Design / UI Polish
+description: Visual improvements, UI inconsistencies, animation tweaks, and design system updates
+title: "[Design]: "
+labels: ["design"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🎨 Design / UI Polish — RelaxSound
+
+        Help us make RelaxSound look and feel amazing.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have searched [existing issues](https://github.com/sanot-tech/RelaxSound/issues) for similar design requests
+          required: true
+        - label: I have included visual references (screenshots, mockups, recordings)
+          required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Design Issue Type
+      options:
+        - Visual inconsistency
+        - Animation / transition improvement
+        - Layout / spacing
+        - Color / typography / theme
+        - Responsive / mobile layout
+        - Accessibility (contrast, focus states)
+        - New visual component
+        - Icon / illustration
+        - Dark / light mode
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Visual Priority
+      options:
+        - 🔴 High — Affects usability or brand consistency
+        - 🟡 Medium — Visual polish, improves experience
+        - 🟢 Low — Minor cosmetic tweak
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current State
+      description: What does the UI currently look like? Paste screenshots
+      placeholder: "Currently, the volume sliders have no visual feedback and look flat against the background."
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired
+    attributes:
+      label: Desired State
+      description: What should it look like? Paste mockups or describe
+      placeholder: "Sliders should have a gradient track, a visible thumb with glow effect, and a tooltip showing the current dB value on hover."
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation Notes
+      description: Any technical suggestions (component to modify, CSS approach)
+      placeholder: "Modify the Slider component in src/components/ui/slider.tsx. Add gradient via CSS background. The glow can be a box-shadow on hover."

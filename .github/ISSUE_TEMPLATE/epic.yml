@@ -1,0 +1,78 @@
+name: Epic
+description: A large feature or initiative spanning multiple tasks and milestones
+title: "[Epic]: "
+labels: ["epic"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🎯 Epic — RelaxSound
+
+        This issue tracks a large feature or initiative. It will be broken down into smaller tasks.
+
+  - type: input
+    id: timeline
+    attributes:
+      label: Target Timeline
+      description: When is this planned for?
+      placeholder: e.g., Q3 2026, Sprint 4, or "No deadline"
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - 🔴 High — Core to product vision
+        - 🟡 Medium — Important but not urgent
+        - 🟢 Low — Nice-to-have
+    validations:
+      required: true
+
+  - type: textarea
+    id: overview
+    attributes:
+      label: Epic Overview
+      description: Describe the high-level goal of this initiative
+      placeholder: "Build a sound sharing platform where users can upload, share, and discover custom ambient sound packs created by the community."
+    validations:
+      required: true
+
+  - type: textarea
+    id: objectives
+    attributes:
+      label: Objectives & Key Results
+      description: What success looks like
+      placeholder: |
+        - Objective: Enable community sound sharing
+          - KR1: Users can upload custom sound packs (up to 50MB)
+          - KR2: Users can browse, preview, and download community packs
+          - KR3: Rating/likes system for community packs
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Task Breakdown
+      description: Reference sub-issues as they are created
+      placeholder: |
+        - [ ] #123 — Backend API for sound pack upload
+        - [ ] #124 — Sound pack browser UI
+        - [ ] #125 — Preview player component
+        - [ ] #126 — Rating system
+        - [ ] #127 — Admin moderation tools
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies & Blockers
+      description: What needs to happen before this can start?
+      placeholder: "- Requires backend infrastructure (tracked in #100)\n- Requires user authentication system (#88)"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Design decisions, technical considerations, related issues
+      placeholder: "Consider using IPFS for distributed sound pack storage to reduce hosting costs."

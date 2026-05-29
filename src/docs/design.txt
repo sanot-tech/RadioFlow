@@ -1,0 +1,79 @@
+create eprcfect symmetry concept ### Обновлённое Техническое Задание (ТЗ) для Мокапа Главной Страницы RadioFlow
+
+
+
+**Дата:** 25 сентября 2025, 06:53 AM CDT  
+
+**Автор ТЗ:** Grok 4 (в роли Проджект-Менеджера / Продюсера)  
+
+**Контекст:** Учитывая обратную связь, пересматриваю промт для мокапа главной страницы RadioFlow. Проблемы: дизайн выглядит адаптированным для планшета, а не для телефона (нужен более компактный и мобильный фокус), и присутствие ненужного элемента "Playback Controls" с прогресс-баром (для радио-стриминга неуместно, так как нет фиксированного трека). Убираю прогресс и перестраиваю интерфейс для адаптивности на небольших экранах (iPhone 14 Pro). Сохраняю ключевые функции: "Random Station", "Browse Genres", "Search Songs".
+
+
+
+---
+
+
+
+Generate a high-fidelity UI mockup prototype for the main page (home screen) of a mobile radio streaming app called "RadioFlow". The app is a progressive web app (PWA) mimicking a native iOS/Android experience, targeting a global multi-million user audience in 2025. Use a dark premium theme inspired by Spotify and YouTube Music: background #121212, surface cards #1E1E1E, accent color #1DB954 (green), text white at 87% opacity, secondary text #B0B0B0 at 60% opacity. Corner radii 12-16px, base padding 12px (adjusted for mobile), subtle shadows (0 4px 12px rgba(0,0,0,0.3)). Typography: Inter or Roboto font, headings 18-22px bold (scaled down for mobile), body 12px.
+
+
+
+The layout is compact and optimized for mobile, one-screen focused (no vertical scroll on the main view; use horizontal carousels or modals for overflow). Show it on an iPhone 14 Pro portrait mode (1170x2532 pixels) with a notch, time 9:53 AM CDT, full battery, WiFi signal. Include subtle animations in the description but render as static mockup with implied motion (e.g., glowing elements). Ensure the design feels tightly packed and adaptive to small screens (no wide tablet-like spacing).
+
+
+
+Key components and placement (from top to bottom, everything fits without scrolling):
+
+
+
+1. **Top App Bar/Header (40px height, compact)**: Left: App logo (colorful radio wave icon in accent green, 24px). Center: "RadioFlow" title in 18px bold white. Right: Search icon (magnifying glass) and Settings gear icon (both 20px, with subtle hover glow effect implied).
+
+
+
+2. **Hero/Now Playing Section (central block, ~220px height, mobile-optimized)**: Large square poster image (200x200px, rounded 12px) of the current station (use placeholder: abstract colorful album art with a radio tower). Overlay on top-right of poster: Heart favorite icon (20px, red if favorited). Below poster: Station title "Now Playing: BBC Radio 1" in 18px bold. Subtitle: "United Kingdom • 320kbps • Pop, Rock" in 12px secondary text. Include a small country flag emoji next to the country.
+
+
+
+3. **Animated Equalizer (below title, 48px height, compact)**: 6 vertical bars (5-6px width, 3px spacing), gradient from accent green to lighter teal, heights varying randomly (imply animation with bars at different levels: short-tall-short pattern). Subtle glow around bars to suggest pulsing.
+
+
+
+4. **Controls Row (below equalizer, 60px height, radio-focused)**: Centered horizontal row. Left: Previous button (chevron left, 40px). Center: Large Play/Pause button (48px circle, accent green fill, white play triangle; imply press scale animation). Right: Next button (chevron right, 40px). Integrate a "Random Station" button seamlessly into the row (40px circle, positioned to the right of Next, with a white shuffle icon on accent green background; premium design: subtle inner gradient for depth, matching the rounded style of other buttons, imply spring bounce animation on press) to instantly play a random station from Radio Browser API. Remove any progress slider or volume control (irrelevant for live radio streaming); replace volume icon with a small info icon (20px) implying station details on tap.
+
+
+
+5. **Genres Trigger (32px height, compact)**: Label "Genres" in 14px bold. Below: A single button "Browse Genres" (accent green, 140px wide, rounded 12px, with a small down arrow icon on the right) that implies opening a full-screen modal/bottom sheet with a dynamic list of all genres from Radio Browser API. The list includes (but is not limited to): African, African Music, Afrobeat, Alternative, Ambient, Arabesque, Arabic, Asian, Austro, Bachata, Ballads, Bebop, Big Band, Bluegrass, Blues, Bollywood, Bossa Nova, Brazilian Music, Celtic, Chanson, Chillout, Christian Contemporary, Christian Music, Classic Rock, Classical, Country, Cumbia, Dancehall, Deep House, Disco, Discofox, Drum'n'Bass, Dub, Easy Listening, Electro, Electronica, Eurodance, Fado, Film & Musical, Folk, Folklore, Forró, Funk, Garage Rock, German Folklore, Gospel, Gothic, Grime, Hard Rock, Hardcore, Hardstyle, Heavy Metal, Hip Hop, HipHop, Hits, House, Indian Music, Indie, Industrial, Instrumental, Islamic music, Italian Music, J-pop, Jazz, Jungle, K-Pop, Kizomba, Latin, Live Music, Lounge, Manele, Merengue, Metal, Metalcore, Minimal, Motown, Musical, Neo-Medieval, New Wave, News-Talk, Oldies, Opera, Oriental, Podcast, Pop, Progressive House, Punk, R'n'B, Ragga, Ranchera, Rap, Reggae, Reggaeton, Rock, Rock'n'Roll, Rumba, Salsa, Samba, Schlager, Sea shanty, Sertanejo, Ska, Soft Rock, Soul, Swing, Talk, Tamil, Tango, Techno, Top 40 & Charts, Traditional, Traditional music, Trance, Trap, Urban, World, Zouk and Tropical, 2000s, 20s 30s 40s 50s 60s, 50s, 60s, 70s, 80s, 90s. Imply a slide-up animation, search bar (debounced 250ms), and grid layout (4 columns, 80x80px tiles with icons and labels).
+
+
+
+6. **Songs Search Trigger (32px height, compact, below Genres)**: Label "Search Songs" in 14px bold. Below: A single button "Search Songs" (accent green, 140px wide, rounded 12px, with a small music note icon on the left) that implies opening a full-screen modal/bottom sheet for searching songs. The modal allows users to search for a song title or artist, then displays stations where the song is currently playing (simulated via Radio Browser API metadata parsing or tags; e.g., results show station name, country, bitrate, and "Now Playing: [Song Title]"). Imply a slide-up animation, debounced search bar (250ms), and list of matching stations with play buttons.
+
+
+
+7. **Stations Carousel (horizontal scrollable, 100px height, mobile-optimized)**: Label "Featured Stations" in 14px. Below: 4-5 card items (each 140x80px, rounded 12px): Small favicon/image (40x40px left), station name "Hits Radio" in 14px, subtitle "UK • 256kbps • Pop" in 10px, right play button (circle 28px). Cards have subtle lift shadow. End with "See All" card implying more stations.
+
+
+
+8. **Sticky Bottom Mini-Player (56px height, if playing, compact)**: Thin bar at bottom: Left thumbnail (40x40px of poster), center title "Now Playing: Song Title by Artist" (ellipsis if long), right play/pause icon (28px). Swipe-up gesture implied to expand to full player.
+
+
+
+Additional details:
+
+- **Genres Modal (Implied, Not Rendered Fully):** When "Browse Genres" is tapped, envision a bottom sheet (72% screen height) with a search bar, a 4-column grid of genre tiles (80x80px each, with icons and labels), and filter chips (e.g., by popularity or alphabet). Genres are fully dynamic from Radio Browser API tags, covering all listed items. Imply stagger animation for tile loading and selection glow effect.
+
+- **Songs Modal (Implied, Not Rendered Fully):** Similar to Genres modal: Bottom sheet with search bar for song/artist, results as station cards showing "Now Playing" metadata, with filters (e.g., by country or bitrate). Imply real-time feel with loading spinner and match highlights.
+
+- **Global Style:** Minimalist, premium dark theme only (no light mode), with micro-animations implied (e.g., "Random Station" button scales 0.96 with bounce, list items stagger fade-in 80ms delay, equalizer bars pulse infinitely).
+
+- **Data Integration:** Assume pulling from Radio Browser API; show placeholders like station names, bitrates, tags, countries.
+
+- **Edge States:** Include a small inset variant showing loading skeleton (gray placeholders pulsing) and empty state ("No stations? Try Random!" with CTA button linked to "Random Station").
+
+- **Accessibility:** Large tap targets (min 40x40px), high contrast, ARIA labels implied.
+
+- **Focus Features:** Ensure the "Random Station" button integrates naturally into the controls row (matching size and style, no oversized or out-of-place design), enhancing the cohesive flow. Highlight "Search Songs" and "Browse Genres" as parallel, compact triggers for consistent UX.
+
+
+
+Output as a single high-res PNG image (2000x3000px) with annotations (small labels pointing to components, e.g., "Seamlessly integrated Random Station button", "Search Songs modal trigger"). Make it look professional, modern, and optimized for mobile handoff to Figma or developers. Ensure the design feels adaptive and tightly packed for small screens, with no unnecessary elements like progress bars.

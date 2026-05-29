@@ -1,0 +1,80 @@
+name: Regression
+description: A feature that previously worked but broke after a recent change or update
+title: "[Regression]: "
+labels: ["regression", "bug"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🔄 Regression Report — RelaxSound
+
+        A feature that used to work is now broken. Help us identify what changed.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have searched [existing issues](https://github.com/sanot-tech/RelaxSound/issues) and this is not a duplicate
+          required: true
+        - label: I can confirm this feature was working in a previous version
+          required: true
+        - label: I have identified the version or commit where it broke (if possible)
+          required: true
+
+  - type: input
+    id: last-working
+    attributes:
+      label: Last Working Version
+      description: The last version where this feature worked correctly
+      placeholder: e.g., v1.2.0 or commit abc1234
+    validations:
+      required: true
+
+  - type: input
+    id: first-broken
+    attributes:
+      label: First Broken Version
+      description: The first version where this broke (if known)
+      placeholder: e.g., v1.3.0 or commit def5678
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Regression Description
+      description: What feature is broken and how?
+      placeholder: "The timer countdown display used to show minutes:seconds correctly. After updating to v1.3.0, the seconds digit sometimes shows NaN if the timer is paused and resumed."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How to trigger the regression
+      placeholder: |
+        1. Open RelaxSound v1.3.0
+        2. Set timer to 5 minutes
+        3. Start timer
+        4. Pause timer
+        5. Resume timer
+        6. Observe NaN in seconds display
+      validations:
+        required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs Actual
+      description: What should happen vs what actually happens
+      placeholder: |
+        Expected: Timer continues from where it was paused (e.g., 4:32 → 4:31)
+        Actual: Timer shows NaN:NaN or resets to 0:00
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Related issues, commits, or PRs that might have caused this
+      placeholder: "This might be related to PR #89 which refactored the timer context."

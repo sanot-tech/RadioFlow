@@ -1,0 +1,197 @@
+Team Task Specification (TZS) for RadioFlow: A Collaborative Development Project
+1. Project Overview
+Date: September 25, 2025, 07:08 AM CDT
+Project Name: RadioFlow
+Objective: Develop a progressive web app (PWA) for mobile radio streaming, targeting a global audience of millions by Q4 2025. RadioFlow will leverage the Radio Browser API, offer a premium dark-themed UX inspired by Spotify and YouTube Music, and support native-like deployment via Capacitor. The app features random station playback, dynamic genre browsing (100+ options), real-time song search via metadata, and a compact mobile-first design, prototyped in Replit.
+Team Roles:
+
+Project Manager (PM): Oversees timeline, coordinates tasks, mitigates risks.
+Developer (Dev): Implements frontend, API integration, animations.
+Testing Engineer (QE): Designs and executes test plans, ensures quality.
+Data Analyst (DA): Provides market insights, tracks KPIs, informs strategy.
+UI/UX Designer (UX): Creates mockups, ensures premium aesthetics.
+
+Timeline: 6-7 weeks (MVP by November 15, 2025).
+Budget: $10,000 (seed funding for tools, dev, testing).
+Tools: Replit (prototyping), GitHub (version control), Figma (design), Google Analytics (post-launch).
+2. Project Goals
+
+Business: Achieve 10,000 installs in Month 1, 30% DAU/MAU, $50K revenue (Year 1).
+Technical: 99% uptime, <3s load, <5s stream buffer, 95% test coverage.
+User: Intuitive discovery (random play, genre/song search), premium UX (animations, accessibility).
+
+3. Scope and Deliverables
+In-Scope
+
+Features: Home screen (Now Playing, equalizer, controls, genre/song triggers, carousel), modals (genres grid, song search), mini-player, favorites/history, settings.
+Platforms: iOS 18+, Android 14+, modern browsers (Chrome, Safari, Firefox).
+Tech: React 19, TypeScript, Vite, Shadcn/Tailwind, Framer Motion, Howler.js, TanStack Query, Capacitor.
+Deliverables:
+
+MVP Codebase (Replit + GitHub).
+PWA (GitHub Pages) and native builds (APKs).
+Mockups (Figma).
+Test Suite (200+ cases).
+Analytics Dashboard (post-launch).
+
+
+
+Out-of-Scope
+
+Desktop support, advanced AI, monetization (v2), multi-language localization.
+
+4. Team Responsibilities and Tasks
+Project Manager (PM)
+
+Tasks:
+
+Define milestones (Planning: Week 1, Prototyping: Weeks 2-3, Development: Weeks 4-6, Testing/Launch: Week 7).
+Coordinate daily stand-ups (15 min, via Discord or Replit chat).
+Manage budget ($10K: 60% dev, 20% testing, 20% design/marketing).
+Mitigate risks (API downtime, scope creep) with contingency plans.
+
+
+Deliverables: Project plan, weekly status reports, risk log.
+
+Developer (Dev)
+
+Tasks:
+
+Set up Replit environment (Vite, React 19, dependencies).
+Implement UI: Home screen (200x200px poster, 6-bar WebGPU equalizer, 60px controls row with random button), modals (genre grid, song search).
+Integrate API (Radio Browser: stations, tags, metadata via WebCodecs).
+Add animations (Framer Motion: 120+ micro-interactions, e.g., button scale, stagger fade).
+Optimize performance (lazy load, virtualization) and build PWA/Capacitor.
+
+
+Deliverables: Working codebase, documentation (README), build artifacts.
+
+Testing Engineer (QE)
+
+Tasks:
+
+Design test strategy (unit, integration, E2E, performance, accessibility).
+Automate tests (Jest, Playwright: 50% coverage) and manual sessions (150+ cases).
+Test edge cases (offline, low network, device rotation) on emulators/real devices.
+Report bugs (GitHub Issues) and validate fixes.
+
+
+Deliverables: Test plan, test cases, defect reports, pass/fail metrics.
+
+Data Analyst (DA)
+
+Tasks:
+
+Analyze market (TAM $10B, SAM $1B) and API data (50K stations, 30% metadata).
+Define KPIs (installs, retention, revenue) and set up analytics (Google Analytics).
+Provide insights for feature prioritization (song search, random play).
+Monitor post-launch data for iterations.
+
+
+Deliverables: Market report, KPI dashboard, recommendation memo.
+
+UI/UX Designer (UX)
+
+Tasks:
+
+Create high-fidelity mockups (Figma: dark theme, iPhone 14 Pro, 2000x3000px).
+Design premium elements (gradient random button, 4-col genre grid, song search modal).
+Ensure accessibility (WCAG 3.0, ARIA labels) and mobile adaptability.
+Iterate based on team feedback.
+
+
+Deliverables: Mockups (PNG with annotations), style guide.
+
+5. Technical Specifications
+Requirements
+
+Functional: Streaming (Howler.js), random play, genre/song search (metadata-driven), offline caching.
+Non-Functional: <3s load, 95% test coverage, high contrast (4.5:1).
+
+Architecture
+
+Frontend: React 19 with Suspense, TypeScript 5.5+.
+UI: Shadcn/UI, Tailwind CSS 4.0 (dark mode), Framer Motion 11 (WebGPU animations).
+Data: TanStack Query v5, Zod (validation).
+PWA: Workbox 7, manifest with Web App Manifest 2.0.
+Hybrid: Capacitor 6.
+
+Design Guidelines
+
+Colors: #121212 (background), #1DB954 (accent).
+Layout: Mobile-first, 12px padding, rounded 12px.
+Animations: 120ms micro, 320ms nav, 60fps equalizer.
+
+6. Workflow and Collaboration
+
+Methodology: Agile (weekly sprints, 2-week iterations).
+Communication: Daily stand-ups (Discord), async updates (GitHub Issues).
+Version Control: GitHub (main branch protected, PR reviews).
+Replit Setup: Shared workspace, npm run dev for preview.
+Handover: Dev to QE (builds), UX to Dev (assets).
+
+7. Milestones and Timeline
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PhaseDurationTasksOwnerPlanningWeek 1Define scope, assign roles, create mockupsPM, UX, DAPrototypingWeeks 2-3Setup Replit, basic UI, API integrationDevDevelopmentWeeks 4-6Full features, animations, PWA/CapacitorDevTestingWeek 7Test execution, bug fixes, validationQELaunch PrepWeek 7Deployment, analytics setup, final reviewPM, DA, Dev
+8. Risks and Mitigation
+
+API Downtime: Cache data, use mocks (QE/Dev).
+Performance Issues: Optimize with WebGPU, test on low-end (QE).
+Scope Creep: Stick to MVP, defer v2 (PM).
+Collaboration Lag: Daily syncs, clear task ownership (PM).
+
+9. Success Criteria
+
+MVP Launch: November 15, 2025.
+User Feedback: NPS >70 (beta).
+Technical: 95% test pass, no critical bugs.
+Business: 10K installs Month 1.
+
+10. Next Steps
+
+PM: Finalize plan, kickoff meeting (09/25/2025, 1 PM CDT).
+UX: Deliver initial mockups by 09/27/2025.
+Dev: Setup Replit by 09/28/2025.
+QE/DA: Prepare test framework/analytics by 09/29/2025.
+
+This TZS aligns the team for a successful RadioFlow launch. Let’s sync and start building!
