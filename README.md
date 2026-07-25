@@ -215,25 +215,25 @@ In the modern media intelligence landscape, teams face a fundamental challenge: 
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║                        RADIOFLOW                              ║
+║                        RADIOFLOW                             ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  EDGE & CDN LAYER                                            ║
-║  Vercel Edge · 200+ PoPs · SSL/TLS · Radio/Audio Proxy     ║
+║  Vercel Edge · 200+ PoPs · SSL/TLS · Radio/Audio Proxy       ║
 ╠══════════════════════════════════════════════════════════════╣
-║  PRESENTATION TIER    │  APPLICATION TIER  │  INFRA TIER    ║
-║  ────────────────     │  ──────────────    │  ──────────    ║
-║  Pages (10)           │  TanStack Query 5  │  Trinity (4)   ║
-║  Components (26)      │  React Context (4) │  Axios Retry   ║
-║  React 18 + Tailwind  │  Custom Hooks (8)  │  API Cache     ║
-║  shadcn/ui + Aurora   │  Services (14)     │  Audio Proxy   ║
-║                       │  Audio State Mach  │  Track Recog   ║
+║  PRESENTATION TIER    │  APPLICATION TIER  │  INFRA TIER     ║
+║  ────────────────     │  ──────────────    │  ──────────     ║
+║  Pages (10)           │  TanStack Query 5  │  Trinity (4)    ║
+║  Components (26)      │  React Context (4) │  Axios Retry    ║
+║  React 18 + Tailwind  │  Custom Hooks (8)  │  API Cache      ║
+║  shadcn/ui + Aurora   │  Services (14)     │  Audio Proxy    ║
+║                       │  Audio State Mach  │  Track Recog    ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  DATA INTEGRATION LAYER                                      ║
-║  Radio Browser (3 nodes)  │  Music Trends (5 platforms)    ║
-║  AI & Recognition (OpenRouter + Shazam + ICY)               ║
+║  Radio Browser (3 nodes)  │  Music Trends (5 platforms)      ║
+║  AI & Recognition (OpenRouter + Shazam + ICY)                ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  PERSISTENCE & CACHE LAYER                                   ║
-║  In-Memory LRU  │  localStorage  │  IndexedDB SW  │  DB    ║
+║  In-Memory LRU  │  localStorage  │  IndexedDB SW  │  DB      ║
 ╚══════════════════════════════════════════════════════════════╝
 ```
 
@@ -312,24 +312,24 @@ RadioFlow implements the **Trinity Development Framework** — a runtime asserti
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  ████████ Trinity Invariant Engine ████████                          │
+│  ████████ Trinity Invariant Engine ████████                         │
 │                                                                     │
 │  ├── radioPlayer.λ.ts — Audio Finite State Machine                  │
-│  │    States:     idle → loading → playing ⇄ paused → error        │
+│  │    States:     idle → loading → playing ⇄ paused → error         │
 │  │    Transitions: 8 types, ALLOWED_TRANSITIONS matrix              │
 │  │    Guards:     invalid transition → InvariantError               │
-│  │    Example:    playing → playing ✗  |  playing → paused ✅      │
+│  │    Example:    playing → playing ✗  |  playing → paused ✅       │
 │  │                                                                  │
-│  ├── auth.λ.ts — Authentication ACL                                │
+│  ├── auth.λ.ts — Authentication ACL                                 │
 │  │    States:     loading / authenticated / unauthenticated         │
 │  │    Guards:     assertAuthRequired → 403 redirect                 │
 │  │    Example:    favorites page → redirect to login if unauthed    │
 │  │                                                                  │
-│  ├── favorites.λ.ts — Deduplication Enforcement                    │
+│  ├── favorites.λ.ts — Deduplication Enforcement                     │
 │  │    Guards:     assertNotDuplicate, assertStationExists           │
 │  │    Example:    adding same station twice → InvariantError        │
 │  │                                                                  │
-│  └── stations.λ.ts — Stream Integrity                              │
+│  └── stations.λ.ts — Stream Integrity                               │
 │       Guards:     assertNoDuplicateNames, assertAllHaveStreams,     │
 │                   assertGenreKnown                                  │
 │       Example:    station without streamUrl → filtered out          │
